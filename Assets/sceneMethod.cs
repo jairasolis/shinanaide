@@ -6,20 +6,24 @@ using UnityEngine.SceneManagement;
 public class sceneMethod : MonoBehaviour
 {
     public void loadCustomizeScene(){
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("customizationScene");
     }
 
     public void loadProfileScene(){
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("profileScene");
     }
 
 
     public void loadShopScene(){
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene("shopScene");
     }
 
     public void loadSettingsScene(){
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene("settingsScene");
+    }
+
+    public void loadPlayScene(){
+        SceneManager.LoadScene("playScene");
     }
 
     public void backToLobby(){
