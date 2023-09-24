@@ -30,4 +30,8 @@ public class sceneMethod : MonoBehaviour
         Debug.Log("BackToLobby called");
         SceneManager.LoadScene(1);
     }
+
+    public void callMethod(){
+        Debug.Log("Mode 2 opened");
+    }
 }
