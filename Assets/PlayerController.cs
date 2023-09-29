@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
         inputDirection.Normalize();
 
         Vector3 movement = inputDirection * _moveSpeed;
-        movement.y = _rigidbody.velocity.y; 
+        movement.y = _rigidbody.velocity.y;
 
         _rigidbody.velocity = movement;
 
@@ -26,8 +26,12 @@ public class PlayerController : MonoBehaviour
         {
             Quaternion targetRotation = Quaternion.LookRotation(inputDirection);
             _rigidbody.MoveRotation(targetRotation);
+            _animator.SetBool("IsRunning", true);
         }
-
-        
+        else
+        {
+            _rigidbody.velocity = Vector3.zero;
+            _animator.SetBool("IsRunning", false);
+        }
     }
 }
