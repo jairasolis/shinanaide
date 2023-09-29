@@ -630,7 +630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eea449396f22d64884a6fe7e7916099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 791665092}
+  _rigidbody: {fileID: 456614312}
   _joystick: {fileID: 127651394}
   _animator: {fileID: 0}
   _moveSpeed: 3
