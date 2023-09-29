@@ -159,7 +159,7 @@ MonoBehaviour:
   _rigidbody: {fileID: 456614312}
   _joystick: {fileID: 127651394}
   _animator: {fileID: 456614313}
-  _moveSpeed: 3
+  _moveSpeed: 5
 --- !u!65 &456614311
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -187,7 +187,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!95 &456614313 stripped
 Animator:
@@ -632,7 +632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 791665092}
   _joystick: {fileID: 127651394}
-  _animator: {fileID: 0}
+  _animator: {fileID: 456614313}
   _moveSpeed: 3
 --- !u!65 &791665091
 BoxCollider:
@@ -672,8 +672,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 791665089}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 09404b23feeeca441a8bd1e48847a100, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 389ca3d9c9d4e4f43b89f75ba8cb2335, type: 3}
+  m_Controller: {fileID: 9100000, guid: 72e5b31843f229a4b8f5ba6cfe098149, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -743,6 +743,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 72e5b31843f229a4b8f5ba6cfe098149, type: 2}
+    - target: {fileID: 5866666021909216657, guid: e5901ce40e7bc6f45be465c564aa05e0, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5901ce40e7bc6f45be465c564aa05e0, type: 3}
 --- !u!1 &1275267938
