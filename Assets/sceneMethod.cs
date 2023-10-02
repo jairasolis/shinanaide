@@ -30,4 +30,5 @@ public class sceneMethod : MonoBehaviour
     public void callMethod(){
         Debug.Log("Mode 2 opened");
     }
+
 }

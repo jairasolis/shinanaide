@@ -210,7 +210,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 118767052}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd69514e541805e4d9add8444c677934, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c219974f89f5ef4e863e0d7f64fdf24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &118767057
@@ -281,8 +281,9 @@ GameObject:
   - component: {fileID: 156946676}
   - component: {fileID: 156946675}
   - component: {fileID: 156946674}
+  - component: {fileID: 156946677}
   m_Layer: 0
-  m_Name: logout
+  m_Name: logoutToLogin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -351,7 +352,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 156946675}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 156946677}
+        m_TargetAssemblyTypeName: logout, Assembly-CSharp
+        m_MethodName: logoutToLogin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &156946675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,6 +403,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156946672}
   m_CullTransparentMesh: 1
+--- !u!114 &156946677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156946672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f6b0767e34a694bb689781c6d04424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &284934090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1214,7 +1239,6 @@ GameObject:
   - component: {fileID: 1047126855}
   - component: {fileID: 1047126854}
   - component: {fileID: 1047126853}
-  - component: {fileID: 1047126852}
   m_Layer: 5
   m_Name: audio
   m_TagString: Untagged
@@ -1242,18 +1266,6 @@ RectTransform:
   m_AnchoredPosition: {x: -700, y: 200}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1047126852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1047126850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd69514e541805e4d9add8444c677934, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1047126853
 MonoBehaviour:
   m_ObjectHideFlags: 0
