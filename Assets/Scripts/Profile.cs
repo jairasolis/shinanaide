@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; // Add this line to include the UnityEngine.UI namespace
 
 public class Profile : MonoBehaviour
 {
@@ -9,23 +8,22 @@ public class Profile : MonoBehaviour
 
     public GameObject arrowLeft;
     public GameObject arrowRight;
-    public GameObject selectedPlayer;
-    public InputField userName;
     public Text noName;
-    // Start is called before the first frame update
+    public InputField Texttype; 
+
     void Start()
     {
-        
+        // Initialization code if needed
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        // Update code if needed
     }
+
     void delayforleftandrightstate()
     {
-        if (currentPlayer<player.length-1)
+        if (currentPlayer < player.Length - 1)
         {
             arrowLeft.SetActive(true);
             arrowRight.SetActive(true);
@@ -34,12 +32,13 @@ public class Profile : MonoBehaviour
         {
             arrowLeft.SetActive(false);
         }
-        if (currentPlayer == player.length - 1)
+        if (currentPlayer == player.Length - 1)
         {
             arrowRight.SetActive(false);
         }
     }
-    public void leftrightstate()
+
+    public void leftrightstate(bool temp) 
     {
         player[currentPlayer].SetActive(false);
         if (temp)
@@ -52,13 +51,12 @@ public class Profile : MonoBehaviour
         }
         delayforleftandrightstate();
         player[currentPlayer].SetActive(true);
-
     }
-    public void selectedPlayer()
+
+    public void SetSelectedPlayer()
     {
         PlayerPrefs.SetInt("currentselectedPlayer", currentPlayer);
-        PlayerPrefs.SetString("name",Texttype.text);
+        PlayerPrefs.SetString("name", Texttype.text); 
         noName.text = PlayerPrefs.GetString("name");
     }
-    
 }
