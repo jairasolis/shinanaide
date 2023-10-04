@@ -32,7 +32,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Scene
+      takeName: Scene
+      internalID: -623603649343465320
+      firstFrame: 1
+      lastFrame: 250
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0.96
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -257,6 +286,14 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
+    - boneName: hand.L
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
     skeleton:
     - name: WATER(Clone)
       parentName: 
@@ -270,8 +307,8 @@ ModelImporter:
       scale: {x: 4.090766, y: 4.090766, z: 4.090766}
     - name: spine
       parentName: metarig
-      position: {x: 0.019189252, y: -0.0063950657, z: 0.72369236}
-      rotation: {x: 0.56621045, y: 0.55156535, z: 0.42740715, w: 0.43875337}
+      position: {x: 0.019189335, y: -0.0063950587, z: 0.7903772}
+      rotation: {x: 0.7904554, y: 0, z: 0, w: 0.6125196}
       scale: {x: 1, y: 1, z: 1}
     - name: pelvis.L
       parentName: spine
@@ -331,17 +368,17 @@ ModelImporter:
     - name: shoulder.L
       parentName: spine.003
       position: {x: -0.018300002, y: 0.13722117, z: 0.07825092}
-      rotation: {x: 0.6520165, y: -0.38777265, z: -0.5138149, w: -0.40062582}
+      rotation: {x: 0.7365499, y: -0.24274914, z: -0.5503951, w: -0.30924484}
       scale: {x: 0.9999999, y: 0.99999994, z: 0.9999999}
     - name: upper_arm.L
       parentName: shoulder.L
       position: {x: -0.016082466, y: 0.35588586, z: 0.027882388}
-      rotation: {x: 0.20715313, y: -0.6975684, z: -0.10501967, w: 0.6778324}
+      rotation: {x: 0.30289128, y: -0.6614937, z: -0.19949079, w: 0.65641946}
       scale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
     - name: forearm.L
       parentName: upper_arm.L
       position: {x: 0.00000011315569, y: 0.29502508, z: -0.000000014901161}
-      rotation: {x: 0.03416779, y: -0.13144237, z: 0.012727586, w: 0.99065304}
+      rotation: {x: 0.11655298, y: -0.12737292, z: -0.04821554, w: 0.9838022}
       scale: {x: 1.0000001, y: 1, z: 1}
     - name: hand.L
       parentName: forearm.L
@@ -356,17 +393,17 @@ ModelImporter:
     - name: shoulder.R
       parentName: spine.003
       position: {x: 0.018300002, y: 0.13722117, z: 0.07825092}
-      rotation: {x: 0.6474328, y: 0.4180682, z: 0.5190809, w: -0.36960095}
+      rotation: {x: 0.71881616, y: 0.2935069, z: 0.5588894, w: -0.29120383}
       scale: {x: 0.9999995, y: 0.9999999, z: 0.9999998}
     - name: upper_arm.R
       parentName: shoulder.R
       position: {x: 0.01392205, y: 0.38477775, z: 0.02619996}
-      rotation: {x: 0.20647343, y: 0.6815044, z: 0.09720789, w: 0.6953209}
+      rotation: {x: 0.3230777, y: 0.6470806, z: 0.17660367, w: 0.6676216}
       scale: {x: 0.9999998, y: 0.99999994, z: 1}
     - name: forearm.R
       parentName: upper_arm.R
       position: {x: 0.000000028754584, y: 0.20074365, z: -0.000000008381903}
-      rotation: {x: 0.032516077, y: 0.13034567, z: -0.018351248, w: 0.9907654}
+      rotation: {x: 0.09283797, y: 0.1278733, z: 0.009410047, w: 0.987391}
       scale: {x: 1, y: 1, z: 0.99999994}
     - name: hand.R
       parentName: forearm.R
@@ -486,7 +523,7 @@ ModelImporter:
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  autoGenerateAvatarMappingIfUnspecified: 0
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
   avatarSetup: 1
