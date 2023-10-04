@@ -6,25 +6,35 @@ using UnityEngine.SceneManagement;
 public class sceneMethod : MonoBehaviour
 {
     public void loadCustomizeScene(){
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene("customizationScene");
     }
 
     public void loadProfileScene(){
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene("profileScene");
     }
 
-
     public void loadShopScene(){
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene("shopScene");
     }
 
     public void loadSettingsScene(){
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene("settingsScene");
+    }
+
+    public void loadPlayScene(){
+        SceneManager.LoadScene("playScene");
+    }
+
+    public void loadGameMode1Scene(){
+        SceneManager.LoadScene("GameMode1Scene");
+    }
+
+    public void loadAudioScene(){
+        SceneManager.LoadScene("AudioScene");
     }
 
     public void backToLobby(){
-        Debug.Log("BackToLobby called");
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("lobbyScene");
     }
 
     public void callMethod(){
