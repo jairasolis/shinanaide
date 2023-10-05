@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class graphics : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void low()
     {
-        
+        QualitySettings.SetQualityLevel(0);
     }
-
-    // Update is called once per frame
-    void Update()
+    public void medium()
     {
-        
+        QualitySettings.SetQualityLevel(1);
+    }
+    public void high()
+    {
+        QualitySettings.SetQualityLevel(2);
+    }
+    public void ultra()
+    {
+        QualitySettings.SetQualityLevel(3);
     }
 }
