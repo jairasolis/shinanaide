@@ -8,16 +8,10 @@ public class graphics : MonoBehaviour
     {
         QualitySettings.SetQualityLevel(0);
     }
-    public void medium()
+
+    public void high()
     {
         QualitySettings.SetQualityLevel(1);
     }
-    public void high()
-    {
-        QualitySettings.SetQualityLevel(2);
-    }
-    public void ultra()
-    {
-        QualitySettings.SetQualityLevel(3);
-    }
+
 }
