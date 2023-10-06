@@ -1,5 +1,6 @@
 using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI; // Add this line to include the UnityEngine.UI namespace
+using TMPro;
 
 public class Profile : MonoBehaviour
 {
@@ -8,8 +9,11 @@ public class Profile : MonoBehaviour
 
     public GameObject arrowLeft;
     public GameObject arrowRight;
-    public Text noName;
-    public InputField Texttype; 
+    public TextMeshProUGUI noName;
+    public TMP_InputField Texttype; 
+    // public InputField Texttype; 
+    public GameObject playerpanel;
+    public GameObject menumain;
 
     void Start()
     {
@@ -57,6 +61,9 @@ public class Profile : MonoBehaviour
     {
         PlayerPrefs.SetInt("currentselectedPlayer", currentPlayer);
         PlayerPrefs.SetString("name", Texttype.text); 
+        Debug.Log(Texttype.text);
         noName.text = PlayerPrefs.GetString("name");
+        playerpanel.SetActive(false);
+        menumain.SetActive(true);
     }
 }
