@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI; // Add this line to include the UnityEngine.UI namespace
 
 public class Profile : MonoBehaviour
 {
