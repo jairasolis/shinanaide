@@ -41,4 +41,8 @@ public class sceneMethod : MonoBehaviour
         Debug.Log("Mode 2 opened");
     }
 
+    public void logoutToLogin(){
+        SceneManager.LoadScene("loginScene");
+    }
+
 }
