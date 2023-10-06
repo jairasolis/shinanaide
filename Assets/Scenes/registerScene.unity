@@ -148,15 +148,15 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125732213}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 945294153}
-  - {fileID: 237429942}
-  - {fileID: 1224395345}
   - {fileID: 1485070391}
+  - {fileID: 1224395345}
+  - {fileID: 237429942}
   m_Father: {fileID: 1678927207}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -215,6 +215,7 @@ GameObject:
   - component: {fileID: 237429941}
   - component: {fileID: 237429940}
   - component: {fileID: 237429939}
+  - component: {fileID: 237429943}
   m_Layer: 5
   m_Name: GoToLogin
   m_TagString: Untagged
@@ -318,13 +319,29 @@ RectTransform:
   m_Children:
   - {fileID: 913831077}
   m_Father: {fileID: 125732214}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -150.59949}
+  m_AnchoredPosition: {x: 0, y: -180}
   m_SizeDelta: {x: 537.6339, y: 81.1871}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &237429943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237429938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ccf393e63fac0d42a6530920ed00d48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usernameInput: {fileID: 945294152}
+  passwordInput: {fileID: 1485070390}
+  registerButton: {fileID: 1224395342}
+  goToLoginButton: {fileID: 237429939}
 --- !u!1 &245566744
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,7 +540,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -575,7 +592,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 40
     m_FontStyle: 2
     m_BestFit: 0
     m_MinSize: 0
@@ -769,7 +786,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1152,7 +1169,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -28.818817}
+  m_AnchoredPosition: {x: 0, y: -60}
   m_SizeDelta: {x: 537.6339, y: 81.1871}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1224395346
@@ -1167,6 +1184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e2623a6d9ace4341af01f3d4e0354d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goToLoginButton: {fileID: 0}
   usernameInput: {fileID: 945294152}
   passwordInput: {fileID: 1485070390}
 --- !u!1 &1243377383
@@ -1209,7 +1227,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 40
     m_FontStyle: 2
     m_BestFit: 0
     m_MinSize: 0
@@ -1309,7 +1327,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1431,11 +1449,11 @@ RectTransform:
   - {fileID: 655327840}
   - {fileID: 1987242903}
   m_Father: {fileID: 125732214}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000015258789, y: 105.95177}
+  m_AnchoredPosition: {x: 0, y: 90}
   m_SizeDelta: {x: 537.6339, y: 81.1871}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1485070392
@@ -1606,6 +1624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e2623a6d9ace4341af01f3d4e0354d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goToLoginButton: {fileID: 237429939}
   usernameInput: {fileID: 945294152}
   passwordInput: {fileID: 1485070390}
 --- !u!4 &1878445786
@@ -1615,8 +1634,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878445784}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.0352528, y: -4.5466123, z: 17.795496}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.0352783, y: -4.546631, z: 17.795496}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1691,7 +1710,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0

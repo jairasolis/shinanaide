@@ -33,7 +33,7 @@ public class Register : MonoBehaviour
 
     }
 
-    void goToLoginScene()
+    public void goToLoginScene()
     {
         SceneManager.LoadScene("loginScene");
     }
