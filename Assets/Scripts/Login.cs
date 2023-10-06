@@ -45,14 +45,18 @@ public class Login : MonoBehaviour
         foreach (var i in credentials)
         {
             string line = i.ToString();
-            //Debug.Log(line);
-            //Debug.Log(line.Substring(11));
-            //substring 0-indexof(:) - indexof(:)+1 - i.length-1
-            if (i.ToString().Substring(0, i.ToString().IndexOf(":")).Equals(usernameInput.text) &&
-                i.ToString().Substring(i.ToString().IndexOf(":") + 1).Equals(passwordInput.text))
+            int indexOfColon = line.IndexOf(":");
+
+            if (indexOfColon >= 0)
             {
-                isExists = true;
-                break;
+                string username = line.Substring(0, indexOfColon);
+                string password = line.Substring(indexOfColon + 1);
+
+                if (username.Equals(usernameInput.text) && password.Equals(passwordInput.text))
+                {
+                    isExists = true;
+                    break;
+                }
             }
         }
 
@@ -66,6 +70,7 @@ public class Login : MonoBehaviour
             Debug.Log("Incorrect credentials");
         }
     }
+
 
     void moveToRegister()
     {

@@ -45,4 +45,8 @@ public class sceneMethod : MonoBehaviour
         SceneManager.LoadScene("loginScene");
     }
 
+    public void backToSettings(){
+        SceneManager.LoadScene("settingsScene");
+    }
+
 }
