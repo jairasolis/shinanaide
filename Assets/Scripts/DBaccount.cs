@@ -4,9 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Mono.Data.Sqlite;
+using UnityEngine.SceneManagement;
 
 public class DBaccount : MonoBehaviour
 {
+
+    public Button goToLoginButton;
+
+
     string conn;
     string sqlQuery;
     IDbConnection dbconn;
@@ -69,4 +74,17 @@ public class DBaccount : MonoBehaviour
 
         Debug.Log("Account is saved to the DB");
     }
+
+
+    void Starts()
+    {
+        goToLoginButton.onClick.AddListener(goToLoginScene);
+    }
+
+    public void goToLoginScene()
+    {
+        SceneManager.LoadScene("loginScene");
+    }
+
+    
 }
