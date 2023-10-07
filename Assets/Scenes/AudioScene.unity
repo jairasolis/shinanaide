@@ -428,7 +428,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 535207448}
         m_TargetAssemblyTypeName: sceneMethod, Assembly-CSharp
-        m_MethodName: backToLobby
+        m_MethodName: loadSettingsScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -458,7 +458,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 46ab45432287cb540b8f21203293a650, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 65ff28fe70e689249a38ccc2f6a33407, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1360,7 +1360,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0f6bdc61fc7d9eb459106b0a0579548d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9312d10ba79f3c6458d789513945ee20, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
