@@ -428,7 +428,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 535207448}
         m_TargetAssemblyTypeName: sceneMethod, Assembly-CSharp
-        m_MethodName: backToSettings
+        m_MethodName: loadSettingsScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
