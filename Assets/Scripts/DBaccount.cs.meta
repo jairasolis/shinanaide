@@ -1,4 +1,10 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
+=======
+<<<<<<<< HEAD:Assets/Scripts/GameManager.cs.meta
+guid: 27f436600ed45a9408d7f9962e6fd024
+========
+>>>>>>> Stashed changes
 guid: 9e2623a6d9ace4341af01f3d4e0354d2
 MonoImporter:
   externalObjects: {}
