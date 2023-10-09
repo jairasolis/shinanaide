@@ -1,4 +1,10 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
+=======
+<<<<<<<< HEAD:Assets/Scripts/GoalDetection.cs.meta
+guid: 564710caeb7414548b9b1d829d0d287a
+========
+>>>>>>> Stashed changes
 guid: 1b9df5c9dbfbe084e87a4fbd0f62e8a1
 MonoImporter:
   externalObjects: {}
