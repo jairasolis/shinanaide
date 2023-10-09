@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/GoalDetection.cs.meta
+guid: 7b9624d521ca36e47886a740f8993b0e
+========
+guid: 1b9df5c9dbfbe084e87a4fbd0f62e8a1
+>>>>>>>> main:Assets/Scripts/readDB.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
