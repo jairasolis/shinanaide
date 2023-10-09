@@ -1437,7 +1437,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1281779795}
-  - component: {fileID: 1281779794}
+  - component: {fileID: 1281779796}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1445,23 +1445,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1281779794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1281779793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b3ab94a3589e1a4a93e6cb01ff5a899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalTime: 30
-  timerText: {fileID: 522452626}
-  player1ScoreText: {fileID: 1923892118}
-  player2ScoreText: {fileID: 790187601}
-  resultText: {fileID: 2144819672}
 --- !u!4 &1281779795
 Transform:
   m_ObjectHideFlags: 0
@@ -1477,6 +1460,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1281779796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281779793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 181bcf7fcc3d7864d9e8c85ea80e0983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalTime: 60
+  timerText: {fileID: 522452626}
+  player1ScoreText: {fileID: 1923892118}
+  player2ScoreText: {fileID: 790187601}
+  resultText: {fileID: 2144819672}
 --- !u!1 &1337632725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1603,7 +1603,7 @@ GameObject:
   - component: {fileID: 1504005110}
   - component: {fileID: 1504005109}
   - component: {fileID: 1504005108}
-  - component: {fileID: 1504005112}
+  - component: {fileID: 1504005113}
   m_Layer: 0
   m_Name: Player2Goal
   m_TagString: Player2Goal
@@ -1689,7 +1689,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1504005112
+--- !u!114 &1504005113
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1698,10 +1698,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1504005107}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7e102bd2e18ef342a2575b6241f36be, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b9624d521ca36e47886a740f8993b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1281779794}
+  gameManager: {fileID: 1281779796}
 --- !u!1 &1766875166
 GameObject:
   m_ObjectHideFlags: 0
@@ -2012,7 +2012,7 @@ GameObject:
   - component: {fileID: 1902926931}
   - component: {fileID: 1902926930}
   - component: {fileID: 1902926929}
-  - component: {fileID: 1902926933}
+  - component: {fileID: 1902926934}
   m_Layer: 0
   m_Name: Player1Goal
   m_TagString: Player1Goal
@@ -2098,7 +2098,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1902926933
+--- !u!114 &1902926934
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2107,10 +2107,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1902926928}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7e102bd2e18ef342a2575b6241f36be, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b9624d521ca36e47886a740f8993b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1281779794}
+  gameManager: {fileID: 1281779796}
 --- !u!1 &1923892115
 GameObject:
   m_ObjectHideFlags: 0
