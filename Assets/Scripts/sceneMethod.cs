@@ -26,7 +26,7 @@ public class sceneMethod : MonoBehaviour
     }
 
     public void loadGameMode1Scene(){
-        SceneManager.LoadScene("GameMode1Scene");
+        SceneManager.LoadScene("gameloading");
     }
 
     public void loadAudioScene(){
