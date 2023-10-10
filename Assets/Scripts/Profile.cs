@@ -1,32 +1,29 @@
 using UnityEngine;
-using UnityEngine.UI; // Add this line to include the UnityEngine.UI namespace
+using UnityEngine.UI; 
 using TMPro;
 
 public class Profile : MonoBehaviour
-{
-    public GameObject[] player;
+{    
     public int currentPlayer;
-
+    public GameObject[] player;
     public GameObject arrowLeft;
     public GameObject arrowRight;
     public TextMeshProUGUI noName;
     public TMP_InputField Texttype; 
-    // public InputField Texttype; 
     public GameObject playerpanel;
     public GameObject menumain;
 
     void Start()
     {
-        // Initialization code if needed
+        // arrowLeft.SetActive(false);
     }
 
     void Update()
     {
-        // Update code if needed
     }
 
     void delayforleftandrightstate()
-    {
+    {   
         if (currentPlayer < player.Length - 1)
         {
             arrowLeft.SetActive(true);
