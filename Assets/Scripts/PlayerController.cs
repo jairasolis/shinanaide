@@ -9,13 +9,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float forceMagnitude;
     [SerializeField] private Animator _animator;
     [SerializeField] private float _moveSpeed;
-    [SerializeField] private Button _kickButton; 
+    [SerializeField] private Button _kickButton;
     private bool _isKicking;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _kickButton.onClick.AddListener(StartKicking); 
+        _kickButton.onClick.AddListener(StartKicking);
     }
 
     private void FixedUpdate()
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
 
         if (!_isKicking)
         {
-          
+
             if (inputDirection == Vector3.zero)
             {
                 movement = Vector3.Lerp(_rigidbody.velocity, Vector3.zero, Time.fixedDeltaTime * 10f);

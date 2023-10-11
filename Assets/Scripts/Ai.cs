@@ -21,7 +21,7 @@ public class Ai : MonoBehaviour
 
         if (distanceToPlayer <= pushRange)
         {
-          
+
             animator.SetBool("IsKicking", true);
             UsePushForce();
         }
@@ -40,7 +40,7 @@ public class Ai : MonoBehaviour
         if (playerRigidbody != null)
         {
             Vector3 pushDirection = (playerTransform.position - transform.position).normalized;
-            float reducedPushForce = pushForce * 0.5f;
+            float reducedPushForce = pushForce * 0.2f;
             playerRigidbody.AddForce(pushDirection * reducedPushForce, ForceMode.Impulse);
         }
     }

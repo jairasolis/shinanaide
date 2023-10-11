@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -21,6 +22,11 @@ public class GameManager : MonoBehaviour
     private int player1Score = 0;
     private int player2Score = 0;
 
+    public Transform player1RespawnPoint;
+    public Transform player2RespawnPoint;
+    public Transform RespawnPointPuck;
+
+
     void Start()
     {
         timeRemaining = totalTime;
@@ -37,26 +43,14 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-
-            if (player1Score > player2Score)
-            {
-                resultText.text = "Player 1 Wins!";
-            }
-            else if (player2Score > player1Score)
-            {
-                resultText.text = "Player 2 Wins!";
-            }
-            else
-            {
-                resultText.text = "It's a Tie!";
-            }
-
-
+            DetermineWinner();
         }
     }
 
     void UpdateTimerDisplay()
     {
+        timeRemaining = Mathf.Max(timeRemaining, 0f);
+
         int minutes = Mathf.FloorToInt(timeRemaining / 60f);
         int seconds = Mathf.FloorToInt(timeRemaining % 60f);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
@@ -68,6 +62,22 @@ public class GameManager : MonoBehaviour
         player2ScoreText.text = player2Score.ToString();
     }
 
+    void DetermineWinner()
+    {
+        if (player1Score > player2Score)
+        {
+            resultText.text = "Player 1 Wins!";
+        }
+        else if (player2Score > player1Score)
+        {
+            resultText.text = "Player 2 Wins!";
+        }
+        else
+        {
+            resultText.text = "It's a Tie!";
+        }
+    }
+
     public void Player1Scores()
     {
         if (player1Score < 3)
@@ -75,6 +85,8 @@ public class GameManager : MonoBehaviour
             player1Score++;
             UpdatePlayerScores();
             CheckWinCondition();
+            RespawnPlayers();
+            RespawnPuck();
         }
     }
 
@@ -85,6 +97,8 @@ public class GameManager : MonoBehaviour
             player2Score++;
             UpdatePlayerScores();
             CheckWinCondition();
+            RespawnPlayers();
+            RespawnPuck();
         }
     }
 
@@ -98,8 +112,37 @@ public class GameManager : MonoBehaviour
         else if (player2Score >= 3)
         {
             resultText.text = "Player 2 Wins!";
+        }
+    }
+
+    void RespawnPlayers()
+    {
+
+        GameObject player1 = GameObject.FindGameObjectWithTag("Player1");
+        if (player1 != null)
+        {
+            player1.transform.position = player1RespawnPoint.position;
+            player1.transform.rotation = player1RespawnPoint.rotation;
+
+        }
 
 
+        GameObject player2 = GameObject.FindGameObjectWithTag("Player2");
+        if (player2 != null)
+        {
+            player2.transform.position = player2RespawnPoint.position;
+            player2.transform.rotation = player2RespawnPoint.rotation;
+
+        }
+    }
+
+    void RespawnPuck()
+    {
+        GameObject Puck = GameObject.FindGameObjectWithTag("Puck");
+        if (Puck != null)
+        {
+            Puck.transform.position = RespawnPointPuck.position;
+            Puck.transform.rotation = RespawnPointPuck.rotation;
         }
     }
 }
