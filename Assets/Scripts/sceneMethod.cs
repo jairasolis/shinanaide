@@ -44,5 +44,9 @@ public class sceneMethod : MonoBehaviour
     public void logoutToLogin(){
         SceneManager.LoadScene("loginScene");
     }
-
+    public void GameSettingsScene()
+    {
+        SceneManager.LoadScene("GamesettingsScene");
+    }
 }
+

@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 118767057}
   - component: {fileID: 118767058}
   m_Layer: 5
-  m_Name: backToLobby
+  m_Name: Resume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -443,8 +443,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 118767058}
-        m_TargetAssemblyTypeName: sceneMethod, Assembly-CSharp
-        m_MethodName: backToLobby
+        m_TargetAssemblyTypeName: Gamesettings, Assembly-CSharp
+        m_MethodName: ReturnToGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -463,7 +463,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 118767052}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c219974f89f5ef4e863e0d7f64fdf24, type: 3}
+  m_Script: {fileID: 11500000, guid: 29b8a1d92fcabc346bb68bce09d31b33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &156946672
