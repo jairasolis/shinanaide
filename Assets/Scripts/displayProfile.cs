@@ -9,13 +9,14 @@ public class displayProfile : MonoBehaviour
     public GameObject userprofileimage;
     public TextMeshProUGUI textname;
     public Profile playing;
+    public GameObject iconPanel;
 
 
     // Start is called before the first frame update
     void Start()
     {
         userprofileimage.GetComponent<Image>().sprite = playing.player[PlayerPrefs.GetInt("currentselectedPlayer")].GetComponent<Image>().sprite;
-        textname.text=PlayerPrefs.GetString("name");
+        textname.text=PlayerPrefs.GetString("LoggedInUsername");
     
     }   
 
