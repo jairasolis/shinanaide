@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class Ai : MonoBehaviour
 {
-    public Transform ObjectTransform; // Variable renamed from playerTransform to ObjectTransform
+    public Transform playerTransform;
     private NavMeshAgent agent;
     private Animator animator;
     public float pushForce = 10f;
@@ -17,10 +17,11 @@ public class Ai : MonoBehaviour
 
     void Update()
     {
-        float distanceToObject = Vector3.Distance(transform.position, ObjectTransform.position);
+        float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
 
-        if (distanceToObject <= pushRange)
+        if (distanceToPlayer <= pushRange)
         {
+
             animator.SetBool("IsKicking", true);
             UsePushForce();
         }
@@ -29,18 +30,18 @@ public class Ai : MonoBehaviour
             animator.SetBool("IsKicking", false);
         }
 
-        agent.destination = ObjectTransform.position;
+        agent.destination = playerTransform.position;
         animator.SetFloat("Speed", agent.velocity.magnitude);
     }
 
     void UsePushForce()
     {
-        Rigidbody objectRigidbody = ObjectTransform.GetComponent<Rigidbody>();
-        if (objectRigidbody != null)
+        Rigidbody playerRigidbody = playerTransform.GetComponent<Rigidbody>();
+        if (playerRigidbody != null)
         {
-            Vector3 pushDirection = (ObjectTransform.position - transform.position).normalized;
-            float reducedPushForce = pushForce * 0.2f;
-            objectRigidbody.AddForce(pushDirection * reducedPushForce, ForceMode.Impulse);
+            Vector3 pushDirection = (playerTransform.position - transform.position).normalized;
+            float reducedPushForce = pushForce * 0.5f;
+            playerRigidbody.AddForce(pushDirection * reducedPushForce, ForceMode.Impulse);
         }
     }
 }

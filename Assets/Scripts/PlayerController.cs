@@ -1,8 +1,7 @@
 using UnityEngine;
-using System.Collections;
-using UnityEngine.UI; 
+using UnityEngine.UI;
 
-
+[RequireComponent(typeof(Rigidbody), typeof(BoxCollider))]
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody _rigidbody;
@@ -11,60 +10,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private Button _kickButton;
-    [SerializeField] private GameObject puck;
-    [SerializeField] private float pushRange;
-    [SerializeField] private Button slideButton;
-    private bool isSliding = false;
-    private bool canPerformSlideDash = true;
-    private float dashDistance = 5f;
-    private Vector3 dashDirection;
     private bool _isKicking;
-
 
     private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>(); 
-        if (slideButton != null)
-        {
-            dashDirection = transform.forward;
-            slideButton.onClick.AddListener(PerformSlideDash);
-        }
+        _rigidbody = GetComponent<Rigidbody>();
         _kickButton.onClick.AddListener(StartKicking);
     }
-
-    void PerformSlideDash()
-    {
-        if (!isSliding && canPerformSlideDash)
-        {
-            isSliding = true;
-            dashDirection = transform.forward;
-
-            _animator.SetBool("IsDashing", true);
-
-            Vector3 targetPosition = transform.position + dashDirection * dashDistance;
-            StartCoroutine(MoveCharacter(targetPosition));
-        }
-    }
-
-    IEnumerator MoveCharacter(Vector3 targetPosition)
-    {
-        float duration = 0.5f; 
-        float elapsedTime = 0f;
-        Vector3 startingPosition = transform.position;
-
-        while (elapsedTime < duration)
-        {
-            transform.position = Vector3.Lerp(startingPosition, targetPosition, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        
-        transform.position = targetPosition;
-        isSliding = false;
-        _animator.SetBool("IsDashing", false);
-    }
-
 
     private void FixedUpdate()
     {
@@ -98,12 +50,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     private void StartKicking()
     {
-        float distanceToPuck = Vector3.Distance(transform.position, puck.transform.position);
-
-        if (distanceToPuck <= pushRange && !_animator.GetBool("IsKicking"))
+        if (!_isKicking)
         {
             _animator.SetBool("IsKicking", true);
             ApplyPushForce();
@@ -112,19 +61,7 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyPushForce()
     {
-        Physics.IgnoreCollision(puck.GetComponent<Collider>(), GetComponent<Collider>(), true);
-
-
-        Rigidbody puckRigidbody = puck.GetComponent<Rigidbody>();
-        if (puckRigidbody != null)
-        {
-            puckRigidbody.AddForce(transform.forward * forceMagnitude, ForceMode.Impulse);
-        }
+        Vector3 forceDirection = transform.forward;
+        _rigidbody.AddForce(forceDirection * forceMagnitude, ForceMode.Impulse);
     }
-
-    private void EnablePuckCollision()
-    {
-        Physics.IgnoreCollision(puck.GetComponent<Collider>(), GetComponent<Collider>(), false);
-    }
-
 }
