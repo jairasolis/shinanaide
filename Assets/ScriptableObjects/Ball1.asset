@@ -15,3 +15,4 @@ MonoBehaviour:
   title: Ball1
   description: Bilog
   baseCost: 69
+  itemImage: {fileID: 21300000, guid: 431d91452f9ad8d428e8a1fd7d74f985, type: 3}
