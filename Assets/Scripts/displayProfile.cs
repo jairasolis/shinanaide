@@ -10,17 +10,16 @@ public class displayProfile : MonoBehaviour
     public TextMeshProUGUI textname;
     public Profile playing;
     public GameObject iconPanel;
+    public Profile profile;
 
 
-    // Start is called before the first frame update
     void Start()
     {
-        userprofileimage.GetComponent<Image>().sprite = playing.player[PlayerPrefs.GetInt("currentselectedPlayer")].GetComponent<Image>().sprite;
+        profile.UpdateUserProfileImage();
         textname.text=PlayerPrefs.GetString("LoggedInUsername");
     
     }   
 
-    // Update is called once per frame
     void Update()
     {
         
