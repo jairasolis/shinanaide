@@ -1,155 +1,80 @@
 using UnityEngine;
 using UnityEngine.UI; 
 using TMPro;
-using Mono.Data.Sqlite;
-using System.Data;
-using System.Collections;
-using System.Collections.Generic;
 
 public class Profile : MonoBehaviour
 {    
-    public GameObject[] icons;
-    public GameObject iconsPanel;
-    public GameObject userprofileimage;
-
+    public int currentPlayer;
+    public GameObject[] player;
+    public GameObject arrowLeft;
+    public GameObject arrowRight;
+    // public TextMeshProUGUI noName;
+    // public TMP_InputField Texttype; 
+    public GameObject iconPanel;
+    public GameObject profilePanel;
+    public TextMeshProUGUI usernameText;
 
 
     void Start()
     {
-
+        aMethod();
+        // arrowLeft.SetActive(false);
     }
 
     void Update()
     {
     }
 
-
-    public void image1()
-    {
-        Debug.Log("Image1 button clicked");
-        StoreIcon("payr");
-        UpdateUserProfileImage();
-    }
-
-    public void image2()
-    {
-
-        Debug.Log("Image2 button clicked");
-        StoreIcon("watur");
-        UpdateUserProfileImage();
-    }
-
-    public void image3()
-    {
-        Debug.Log("Image3 button clicked");
-        StoreIcon("ert");
-        UpdateUserProfileImage();
-    }
-
-    public void UpdateUserProfileImage()
-    {
-        string username = PlayerPrefs.GetString("LoggedInUsername"); // Get the logged-in username
-        Debug.Log("UpdateUserProfileImage called for user: " + username);
-
-        if (string.IsNullOrEmpty(username))
+    void delayforleftandrightstate()
+    {   
+        if (currentPlayer < player.Length - 1)
         {
-            Debug.LogError("No logged-in username found.");
-            return;
+            arrowLeft.SetActive(true);
+            arrowRight.SetActive(true);
         }
-
-        string databasePath = Application.dataPath + "/accountDB.db";
-        string connectionString = "URI=file:" + databasePath;
-
-        using (var connection = new SqliteConnection(connectionString))
+        if (currentPlayer == 0)
         {
-            connection.Open();
-
-            using (var command = connection.CreateCommand())
-            {
-                // Select the iconPath for the logged-in user
-                command.CommandText = "SELECT icon FROM account WHERE username = @username";
-                command.Parameters.Add(new SqliteParameter("@username", username));
-
-                using (var reader = command.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        string iconPath = reader.GetString(0);
-                        Debug.Log("Icon path retrieved from the database: " + iconPath);
-
-                        // Now you have the 'iconPath' from the database. You can use it to load and display the icon in your UI.
-                        // For example, you can assign it to a UI Image component like this:
-                        userprofileimage.GetComponent<Image>().sprite = LoadSpriteFromPath(iconPath);
-                    }
-                    else
-                    {
-                        Debug.LogError("User's icon not found in the database.");
-                    }
-                }
-            }
+            arrowLeft.SetActive(false);
+        }
+        if (currentPlayer == player.Length - 1)
+        {
+            arrowRight.SetActive(false);
         }
     }
 
-    private Sprite LoadSpriteFromPath(string path)
+    public void leftrightstate(bool temp) 
     {
-        Sprite loadedSprite = Resources.Load<Sprite>(path);
-
-        if (loadedSprite == null)
+        player[currentPlayer].SetActive(false);
+        if (temp)
         {
-            Debug.LogError("Failed to load sprite at path: " + path);
+            currentPlayer++;
         }
-
-        return loadedSprite;
-    }
-
-
-
-    public void StoreIcon(string iconName)
-    {
-        string iconPath = iconName;
-        string databasePath = Application.dataPath + "/accountDB.db";
-        string connectionString = "URI=file:" + databasePath;
-
-        using (var connection = new SqliteConnection("URI=file:" + Application.dataPath + "/accountDB.db"))
+        else if (!temp)
         {
-            connection.Open();
-
-            using (var transaction = connection.BeginTransaction())
-            {
-                var command = connection.CreateCommand();
-                command.Transaction = transaction;
-
-                // Update the icon for a specific user (filtered by username)
-                command.CommandText = "UPDATE account SET icon = @icon WHERE username = @username";
-
-                command.Parameters.Add(new SqliteParameter("@icon", iconPath));
-                string username = PlayerPrefs.GetString("LoggedInUsername");
-                command.Parameters.Add(new SqliteParameter("@username", username));
-                UpdateUserProfileImage();
-                Debug.Log(iconPath + username);
-
-                command.ExecuteNonQuery();
-
-                transaction.Commit();
-            }
+            currentPlayer--;
         }
-
+        delayforleftandrightstate();
+        
+        player[currentPlayer].SetActive(true);
     }
 
-
-    public void displayIconsPopUp()
+    public void SetSelectedPlayer()
     {
-        iconsPanel.SetActive(true);
+        PlayerPrefs.SetInt("currentselectedPlayer", currentPlayer);
+        // PlayerPrefs.SetString("name", Texttype.text); 
+        // Debug.Log(Texttype.text);
+        // noName.text = PlayerPrefs.GetString("name");
+        iconPanel.SetActive(false);
+        profilePanel.SetActive(true);
     }
 
-    public void closePopUp()
+    public void aMethod()
     {
-
-        iconsPanel.SetActive(false);
-    }
-
-    public void applyIcon()
-    {
-        iconsPanel.SetActive(false);
+        // Retrieve the username from PlayerPrefs
+        if (PlayerPrefs.HasKey("LoggedInUsername"))
+        {
+            string username = PlayerPrefs.GetString("LoggedInUsername");
+            usernameText.text = "welcome, " + username + ", please select an icon"; // Display the username in your UI
+        }
     }
 }

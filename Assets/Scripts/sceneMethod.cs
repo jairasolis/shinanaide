@@ -45,10 +45,6 @@ public class sceneMethod : MonoBehaviour
         SceneManager.LoadScene("registerScene");
     }
 
-    public void registerToLogin(){
-        SceneManager.LoadScene("loginScene");
-    }
-
     public void logoutToLogin(){
         SceneManager.LoadScene("loginScene");
     }
