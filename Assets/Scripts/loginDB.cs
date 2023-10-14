@@ -23,7 +23,9 @@ public class loginDB : MonoBehaviour
 
     public void AttemptLogin()
     {
-        using (dbconn = new SqliteConnection(conn))
+        //string username = null;
+
+        using (dbconn = new SqliteConnection("URI=file:" + Application.dataPath + "/accountDB.db"))
         {
             dbconn.Open();
             using (IDbCommand dbcmd = dbconn.CreateCommand())
@@ -35,6 +37,7 @@ public class loginDB : MonoBehaviour
                 paramUsername.ParameterName = "@username";
                 paramUsername.Value = usernameInput.text;
                 dbcmd.Parameters.Add(paramUsername);
+                GetUsername(usernameInput.text);
 
                 IDbDataParameter paramPassword = dbcmd.CreateParameter();
                 paramPassword.ParameterName = "@password";
@@ -47,8 +50,9 @@ public class loginDB : MonoBehaviour
                 {
                     PlayerPrefs.SetString("LoggedInUsername", usernameInput.text); // Store the username in PlayerPrefs
                     PlayerPrefs.Save(); // Save the PlayerPrefs data
+
+                    //username = reader["username"].ToString();
                     loadLoadingScene();
-                    // loadProfileScene(); // Transition to the profile scene
                 }
                 else
                 {
@@ -59,7 +63,13 @@ public class loginDB : MonoBehaviour
                 reader.Close();
             }
             dbconn.Close();
+            //return username;
         }
+    }
+
+    public string GetUsername(string username)
+    {
+        return username; 
     }
 
     void loadLoadingScene()

@@ -37,7 +37,7 @@ public class DBaccount : MonoBehaviour
             dbconn.Open();
             dbcmd = dbconn.CreateCommand();
 
-            sqlQuery = "CREATE TABLE IF NOT EXISTS account (username TEXT, password TEXT);";
+            sqlQuery = "CREATE TABLE IF NOT EXISTS account (username TEXT NOT NULL, password TEXT NOT NULL, icon INTEGER NOT NULL DEFAULT 1);";
 
             dbcmd.CommandText = sqlQuery;
             dbcmd.ExecuteScalar();
@@ -45,32 +45,25 @@ public class DBaccount : MonoBehaviour
         }
     }
 
+
     public void AddAccount()
     {
         using (var connection = new SqliteConnection(conn))
         {
             connection.Open();
 
-            using (var transaction = connection.BeginTransaction()) // Begin a transaction.
+            using (var transaction = connection.BeginTransaction())
             {
-                using (var command = connection.CreateCommand())
-                {
-                    command.Transaction = transaction; // Assign the transaction to the command.
-                    command.CommandText = "INSERT INTO account (username, password) VALUES (@username, @password)";
-                    command.Parameters.Add(new SqliteParameter("@username", usernameInput.text));
-                    command.Parameters.Add(new SqliteParameter("@password", passwordInput.text));
-                    command.ExecuteNonQuery();
-                }
+                var command = connection.CreateCommand();
+                command.Transaction = transaction;
+                command.CommandText = "INSERT INTO account (username, password) VALUES (@username, @password)";
+                command.Parameters.Add(new SqliteParameter("@username", usernameInput.text));
+                command.Parameters.Add(new SqliteParameter("@password", passwordInput.text));
+                command.ExecuteNonQuery();
 
-                transaction.Commit(); 
+                transaction.Commit();
             }
-
-            connection.Close();
         }
-
-        Debug.Log(usernameInput.text);
-        Debug.Log(passwordInput.text);
-
 
         Debug.Log("Account is saved to the DB");
     }
