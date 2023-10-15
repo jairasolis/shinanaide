@@ -59,7 +59,7 @@ public class AI : MonoBehaviour
     {
         isFollowingPuck = shouldFollow;
         animator.SetBool("IsKicking", false);
-        animator.SetFloat(ScoreParameter, score);
+   
 
     }
 
