@@ -31,13 +31,16 @@ public class GameManager : MonoBehaviour
     public Transform player2RespawnPoint;
     public Transform RespawnPointPuck;
 
+    scoreWinsToDB wintoDB;
+
+
     void Start()
     {
         timeRemaining = totalTime;
         UpdateTimerDisplay();
         UpdatePlayerScores();
         aiObject = GameObject.FindGameObjectWithTag("Player2").GetComponent<AI>();
-
+        wintoDB = GameObject.FindGameObjectWithTag("needed").GetComponent<scoreWinsToDB>();
     }
 
     void Update()
@@ -131,6 +134,10 @@ public class GameManager : MonoBehaviour
         if (player1Score >= 3)
         {
             resultText.text = "Player 1 Wins!";
+
+            
+            wintoDB.add();
+
         }
         else if (player2Score >= 3)
         {

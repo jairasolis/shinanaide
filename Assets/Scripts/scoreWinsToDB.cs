@@ -8,6 +8,12 @@ using System.Data;
 
 public class scoreWinsToDB : MonoBehaviour
 {
+    public void add()
+    {
+        addGambas();
+        addWin();
+    }
+
     public void addGambas()
     {
         string username = PlayerPrefs.GetString("LoggedInUsername");
