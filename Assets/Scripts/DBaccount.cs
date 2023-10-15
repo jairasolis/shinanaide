@@ -16,6 +16,8 @@ public class DBaccount : MonoBehaviour
 
     string conn;
     string sqlQuery;
+    string shop;
+    string inventory;
     IDbConnection dbconn;
     IDbCommand dbcmd;
 
@@ -44,8 +46,13 @@ public class DBaccount : MonoBehaviour
             dbcmd = dbconn.CreateCommand();
 
             sqlQuery = "CREATE TABLE IF NOT EXISTS account (username TEXT NOT NULL, password TEXT NOT NULL, icon TEXT NOT NULL DEFAULT 'payr', gambas INT NOT NULL DEFAULT 0, wins INT NOT NULL DEFAULT 0);";
+            shop = "CREATE TABLE IF NOT EXISTS shop (character TEXT NOT NULL, ball TEXT NOT NULL, court TEXT NOT NULL);";
+            inventory = "CREATE TABLE IF NOT EXISTS inventory (character TEXT NOT NULL, ball TEXT NOT NULL, court TEXT NOT NULL);";
+
 
             dbcmd.CommandText = sqlQuery;
+            dbcmd.CommandText = shop;
+            dbcmd.CommandText = inventory;
             dbcmd.ExecuteScalar();
             dbconn.Close();
         }
@@ -59,7 +66,7 @@ public class DBaccount : MonoBehaviour
             registerStatusText.gameObject.SetActive(true);
             registerStatusText.text = "Error detected. Field is null. Please try again.";
         }
-        else if(passwordInput.text == confirmPassInput.text)
+        else if (passwordInput.text == confirmPassInput.text)
         {
             goToLoginScene();
 
@@ -81,7 +88,8 @@ public class DBaccount : MonoBehaviour
             }
 
             Debug.Log("Account is saved to the DB");
-        }else
+        }
+        else
         {
             registerStatusText.gameObject.SetActive(true);
             registerStatusText.text = "Password did not match.";
@@ -98,5 +106,5 @@ public class DBaccount : MonoBehaviour
         SceneManager.LoadScene("loginScene");
     }
 
-    
+
 }
