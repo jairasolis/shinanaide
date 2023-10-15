@@ -23,7 +23,6 @@ public class loginDB : MonoBehaviour
 
     public void AttemptLogin()
     {
-        //string username = null;
 
         using (dbconn = new SqliteConnection("URI=file:" + Application.dataPath + "/accountDB.db"))
         {
@@ -46,12 +45,17 @@ public class loginDB : MonoBehaviour
 
                 IDataReader reader = dbcmd.ExecuteReader();
 
-                if (reader.Read())
+                if (usernameInput.text == "" || passwordInput.text == "")
+                {
+
+                    loginStatusText.gameObject.SetActive(true);
+                    loginStatusText.text = "Error detected. Field is null. Please try again.";
+
+                }else if(reader.Read())
                 {
                     PlayerPrefs.SetString("LoggedInUsername", usernameInput.text); // Store the username in PlayerPrefs
                     PlayerPrefs.Save(); // Save the PlayerPrefs data
 
-                    //username = reader["username"].ToString();
                     loadLoadingScene();
                 }
                 else

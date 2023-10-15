@@ -16,18 +16,12 @@ public class Profile : MonoBehaviour
 
     void Start()
     {
-        //updateWins();
     }
 
     void Update()
     {
     }
 
-    public void updateWins()
-    {
-        winsNum.text = "3";
-
-    }
 
 
     public void image1()
@@ -48,6 +42,13 @@ public class Profile : MonoBehaviour
     {
         Debug.Log("Image3 button clicked");
         StoreIcon("ert");
+        UpdateUserProfileImage();
+    }
+
+    public void image4()
+    {
+        Debug.Log("Image4 button clicked");
+        StoreIcon("perpulap");
         UpdateUserProfileImage();
     }
 

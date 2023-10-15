@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using Mono.Data.Sqlite;
 using UnityEngine.SceneManagement;
+using TMPro;
+
 
 public class DBaccount : MonoBehaviour
 {
@@ -19,7 +21,11 @@ public class DBaccount : MonoBehaviour
 
     public InputField usernameInput;
     public InputField passwordInput;
-    
+    public InputField confirmPassInput;
+    public TextMeshProUGUI registerStatusText;
+
+
+
     string DATABASE_NAME = "/accountDB.db";
 
     void Start()
@@ -48,26 +54,39 @@ public class DBaccount : MonoBehaviour
 
     public void AddAccount()
     {
-        using (var connection = new SqliteConnection(conn))
+        if (usernameInput.text == "" || passwordInput.text == "")
         {
-            connection.Open();
-
-            using (var transaction = connection.BeginTransaction())
-            {
-                var command = connection.CreateCommand();
-                command.Transaction = transaction;
-                command.CommandText = "INSERT INTO account (username, password) VALUES (@username, @password)";
-                command.Parameters.Add(new SqliteParameter("@username", usernameInput.text));
-                command.Parameters.Add(new SqliteParameter("@password", passwordInput.text));
-                command.ExecuteNonQuery();
-
-                transaction.Commit();
-            }
+            registerStatusText.gameObject.SetActive(true);
+            registerStatusText.text = "Error detected. Field is null. Please try again.";
         }
+        else if(passwordInput.text == confirmPassInput.text)
+        {
+            goToLoginScene();
 
-        Debug.Log("Account is saved to the DB");
+            using (var connection = new SqliteConnection(conn))
+            {
+                connection.Open();
+
+                using (var transaction = connection.BeginTransaction())
+                {
+                    var command = connection.CreateCommand();
+                    command.Transaction = transaction;
+                    command.CommandText = "INSERT INTO account (username, password) VALUES (@username, @password)";
+                    command.Parameters.Add(new SqliteParameter("@username", usernameInput.text));
+                    command.Parameters.Add(new SqliteParameter("@password", passwordInput.text));
+                    command.ExecuteNonQuery();
+
+                    transaction.Commit();
+                }
+            }
+
+            Debug.Log("Account is saved to the DB");
+        }else
+        {
+            registerStatusText.gameObject.SetActive(true);
+            registerStatusText.text = "Password did not match.";
+        }
     }
-
 
     void Starts()
     {
