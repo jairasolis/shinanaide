@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -26,13 +28,10 @@ public class GameManager : MonoBehaviour
     private float respawnCountdown = 3f;
     private AI aiObject; 
 
-
     public Transform player1RespawnPoint;
     public Transform player2RespawnPoint;
     public Transform RespawnPointPuck;
-
     scoreWinsToDB wintoDB;
-
 
     void Start()
     {
@@ -90,20 +89,23 @@ public class GameManager : MonoBehaviour
         if (player1Score > player2Score)
         {
             resultText.text = "Player 1 Wins!";
+            WinScene();
         }
         else if (player2Score > player1Score)
         {
             resultText.text = "Player 2 Wins!";
+            WinScene();
         }
         else
         {
             resultText.text = "It's a Tie!";
+            WinScene();
         }
     }
 
     public void Player1Scores()
     {
-        if (player1Score < 3 && !isRespawning)
+        if (player1Score < 7 && !isRespawning)
         {
             player1Score++;
             UpdatePlayerScores();
@@ -111,14 +113,12 @@ public class GameManager : MonoBehaviour
             isRespawning = true;
             aiObject.SetShouldFollowPuck(false);
             aiObject.SetGameInProgress(false);
-
-
         }
     }
 
     public void Player2Scores()
     {
-        if (player2Score < 3 && !isRespawning)
+        if (player2Score < 7 && !isRespawning)
         {
             player2Score++;
             UpdatePlayerScores();
@@ -131,18 +131,19 @@ public class GameManager : MonoBehaviour
 
     void CheckWinCondition()
     {
-        if (player1Score >= 3)
+        if (player1Score >= 7)
         {
             resultText.text = "Player 1 Wins!";
-
-            
             wintoDB.add();
-
         }
-        else if (player2Score >= 3)
+        else if (player2Score >= 7)
         {
             resultText.text = "Player 2 Wins!";
         }
+    }
+    void WinScene()
+    {
+        SceneManager.LoadScene("15");
     }
 
     void RespawnPlayers()

@@ -2054,7 +2054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181bcf7fcc3d7864d9e8c85ea80e0983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTime: 60
+  totalTime: 10
   timerText: {fileID: 16396226}
   player1ScoreText: {fileID: 1991583443}
   player2ScoreText: {fileID: 1267371685}
@@ -5668,8 +5668,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectTransform: {fileID: 1337632729}
-  pushForce: 0.5
-  pushRange: 2
+  pushForce: 1
+  pushRange: 1.5
 --- !u!195 &6401354556755309440
 NavMeshAgent:
   m_ObjectHideFlags: 0
