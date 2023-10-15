@@ -1,13 +1,16 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Ai : MonoBehaviour
+public class AI : MonoBehaviour
 {
-    public Transform ObjectTransform; // Variable renamed from playerTransform to ObjectTransform
+    public Transform ObjectTransform;
     private NavMeshAgent agent;
     private Animator animator;
     public float pushForce = 10f;
     public float pushRange = 2f;
+
+    private bool isFollowingPuck = true;
+    private bool gameInProgress = true;
 
     void Start()
     {
@@ -17,20 +20,28 @@ public class Ai : MonoBehaviour
 
     void Update()
     {
-        float distanceToObject = Vector3.Distance(transform.position, ObjectTransform.position);
-
-        if (distanceToObject <= pushRange)
+        if (gameInProgress && isFollowingPuck)
         {
-            animator.SetBool("IsKicking", true);
-            UsePushForce();
+            float distanceToObject = Vector3.Distance(transform.position, ObjectTransform.position);
+
+            if (distanceToObject <= pushRange)
+            {
+                animator.SetBool("IsKicking", true);
+                UsePushForce();
+            }
+            else
+            {
+                animator.SetBool("IsKicking", false);
+            }
+
+            agent.destination = ObjectTransform.position;
+            animator.SetFloat("Speed", agent.velocity.magnitude);
         }
         else
         {
-            animator.SetBool("IsKicking", false);
+            agent.isStopped = true;
+            animator.SetFloat("Speed", 0f);
         }
-
-        agent.destination = ObjectTransform.position;
-        animator.SetFloat("Speed", agent.velocity.magnitude);
     }
 
     void UsePushForce()
@@ -42,5 +53,19 @@ public class Ai : MonoBehaviour
             float reducedPushForce = pushForce * 0.2f;
             objectRigidbody.AddForce(pushDirection * reducedPushForce, ForceMode.Impulse);
         }
+    }
+
+    public void SetShouldFollowPuck(bool shouldFollow)
+    {
+        isFollowingPuck = shouldFollow;
+        animator.SetBool("IsKicking", false);
+        animator.SetFloat(ScoreParameter, score);
+
+    }
+
+    public void SetGameInProgress(bool inProgress)
+    {
+        gameInProgress = inProgress;
+        agent.isStopped = false;
     }
 }

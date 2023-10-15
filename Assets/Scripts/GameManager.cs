@@ -22,16 +22,22 @@ public class GameManager : MonoBehaviour
     private int player1Score = 0;
     private int player2Score = 0;
 
+    private bool isRespawning = false;
+    private float respawnCountdown = 3f;
+    private AI aiObject; 
+
+
     public Transform player1RespawnPoint;
     public Transform player2RespawnPoint;
     public Transform RespawnPointPuck;
-
 
     void Start()
     {
         timeRemaining = totalTime;
         UpdateTimerDisplay();
         UpdatePlayerScores();
+        aiObject = GameObject.FindGameObjectWithTag("Player2").GetComponent<AI>();
+
     }
 
     void Update()
@@ -44,6 +50,20 @@ public class GameManager : MonoBehaviour
         else
         {
             DetermineWinner();
+        }
+        if (isRespawning)
+        {
+            respawnCountdown -= Time.deltaTime;
+
+            if (respawnCountdown <= 0f)
+            {
+                RespawnPlayers();
+                RespawnPuck();
+                respawnCountdown = 3f;
+                isRespawning = false;
+                aiObject.SetShouldFollowPuck(true);
+                aiObject.SetGameInProgress(true);
+            }
         }
     }
 
@@ -80,25 +100,29 @@ public class GameManager : MonoBehaviour
 
     public void Player1Scores()
     {
-        if (player1Score < 3)
+        if (player1Score < 3 && !isRespawning)
         {
             player1Score++;
             UpdatePlayerScores();
             CheckWinCondition();
-            RespawnPlayers();
-            RespawnPuck();
+            isRespawning = true;
+            aiObject.SetShouldFollowPuck(false);
+            aiObject.SetGameInProgress(false);
+
+
         }
     }
 
     public void Player2Scores()
     {
-        if (player2Score < 3)
+        if (player2Score < 3 && !isRespawning)
         {
             player2Score++;
             UpdatePlayerScores();
             CheckWinCondition();
-            RespawnPlayers();
-            RespawnPuck();
+            isRespawning = true;
+            aiObject.SetShouldFollowPuck(false);
+            aiObject.SetGameInProgress(false);
         }
     }
 
@@ -107,7 +131,6 @@ public class GameManager : MonoBehaviour
         if (player1Score >= 3)
         {
             resultText.text = "Player 1 Wins!";
-
         }
         else if (player2Score >= 3)
         {
@@ -117,22 +140,18 @@ public class GameManager : MonoBehaviour
 
     void RespawnPlayers()
     {
-
         GameObject player1 = GameObject.FindGameObjectWithTag("Player1");
         if (player1 != null)
         {
             player1.transform.position = player1RespawnPoint.position;
             player1.transform.rotation = player1RespawnPoint.rotation;
-
         }
-
 
         GameObject player2 = GameObject.FindGameObjectWithTag("Player2");
         if (player2 != null)
         {
             player2.transform.position = player2RespawnPoint.position;
             player2.transform.rotation = player2RespawnPoint.rotation;
-
         }
     }
 
