@@ -4303,7 +4303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2790117854082512520, guid: 6cd8b37b52666234e88e49ac1b2b336d, type: 3}
       propertyPath: m_text
-      value: Be tough.
+      value: Tough as a rock.
       objectReference: {fileID: 0}
     - target: {fileID: 2790117854082512520, guid: 6cd8b37b52666234e88e49ac1b2b336d, type: 3}
       propertyPath: m_fontAsset
