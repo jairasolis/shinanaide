@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abbd2a2e38f2af4419fe244ff4ca204f, type: 3}
   m_Name: Ball1
   m_EditorClassIdentifier: 
-  title: Ball1
-  description: Bilog
-  baseCost: 69
-  itemImage: {fileID: 21300000, guid: 431d91452f9ad8d428e8a1fd7d74f985, type: 3}
+  title: EARTH BALL
+  description: For the Earthtopia!
+  baseCost: 250
+  itemImage: {fileID: 21300000, guid: 05e323e061b16344f93374ac4e7aa3b5, type: 3}

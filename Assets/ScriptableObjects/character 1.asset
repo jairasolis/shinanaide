@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abbd2a2e38f2af4419fe244ff4ca204f, type: 3}
   m_Name: character 1
   m_EditorClassIdentifier: 
-  title: character 1
-  description: character 1
-  baseCost: 10
+  title: EARTH
+  description: I just want to sleep.
+  baseCost: 500
+  itemImage: {fileID: 21300000, guid: 3583da2893fec794bb8de0f631edd74b, type: 3}

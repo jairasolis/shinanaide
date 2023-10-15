@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abbd2a2e38f2af4419fe244ff4ca204f, type: 3}
   m_Name: Ball5
   m_EditorClassIdentifier: 
-  title: Ball4
-  description: gegegege
-  baseCost: 24
+  title: MAGMA BALL
+  description: Hey, Fire! Let's have a duel.
+  baseCost: 325
+  itemImage: {fileID: 21300000, guid: edcffbefc15da084080a8256d0ff0d8b, type: 3}

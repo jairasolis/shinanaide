@@ -52,9 +52,22 @@ public class sceneMethod : MonoBehaviour
     public void logoutToLogin(){
         SceneManager.LoadScene("loginScene");
     }
+
     public void GameSettingsScene()
     {
         SceneManager.LoadScene("GamesettingsScene");
+    }
+
+    public void loadPuckScene(){
+        SceneManager.LoadScene("puckScene");
+    }
+
+    public void loadMapScene(){
+        SceneManager.LoadScene("mapScene");
+    }
+
+    public void loadCharacterScene(){
+        SceneManager.LoadScene("customizationScene");
     }
 }
 

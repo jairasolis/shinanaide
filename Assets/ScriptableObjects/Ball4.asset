@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abbd2a2e38f2af4419fe244ff4ca204f, type: 3}
   m_Name: Ball4
   m_EditorClassIdentifier: 
-  title: Ball4
-  description: di ko alam
-  baseCost: 12
+  title: FIRE BALL
+  description: Unleash the burning desire.
+  baseCost: 315
+  itemImage: {fileID: 21300000, guid: cb193ee5a45c0074cbbf19f7817d029e, type: 3}

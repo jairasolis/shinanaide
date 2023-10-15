@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abbd2a2e38f2af4419fe244ff4ca204f, type: 3}
   m_Name: Ball2
   m_EditorClassIdentifier: 
-  title: Ball2
-  description: Bilog na Bilog
-  baseCost: 10
+  title: DIRT BALL
+  description: Description
+  baseCost: 260
+  itemImage: {fileID: 21300000, guid: 85e7ea84f2b243043927a4c11d68c1fb, type: 3}
