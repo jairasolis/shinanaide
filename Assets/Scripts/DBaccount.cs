@@ -37,7 +37,7 @@ public class DBaccount : MonoBehaviour
             dbconn.Open();
             dbcmd = dbconn.CreateCommand();
 
-            sqlQuery = "CREATE TABLE IF NOT EXISTS account (username TEXT NOT NULL, password TEXT NOT NULL, icon TEXT NOT NULL DEFAULT payr);";
+            sqlQuery = "CREATE TABLE IF NOT EXISTS account (username TEXT NOT NULL, password TEXT NOT NULL, icon TEXT NOT NULL DEFAULT 'payr', gambas INT NOT NULL DEFAULT 0, wins INT NOT NULL DEFAULT 0);";
 
             dbcmd.CommandText = sqlQuery;
             dbcmd.ExecuteScalar();

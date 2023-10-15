@@ -11,16 +11,22 @@ public class Profile : MonoBehaviour
     public GameObject[] icons;
     public GameObject iconsPanel;
     public GameObject userprofileimage;
-
+    public TextMeshProUGUI winsNum;
 
 
     void Start()
     {
-
+        //updateWins();
     }
 
     void Update()
     {
+    }
+
+    public void updateWins()
+    {
+        winsNum.text = "3";
+
     }
 
 
@@ -33,7 +39,6 @@ public class Profile : MonoBehaviour
 
     public void image2()
     {
-
         Debug.Log("Image2 button clicked");
         StoreIcon("watur");
         UpdateUserProfileImage();
@@ -67,7 +72,7 @@ public class Profile : MonoBehaviour
             using (var command = connection.CreateCommand())
             {
                 // Select the iconPath for the logged-in user
-                command.CommandText = "SELECT icon FROM account WHERE username = @username";
+                command.CommandText = "SELECT icon, wins FROM account WHERE username = @username";
                 command.Parameters.Add(new SqliteParameter("@username", username));
 
                 using (var reader = command.ExecuteReader())
@@ -75,11 +80,15 @@ public class Profile : MonoBehaviour
                     if (reader.Read())
                     {
                         string iconPath = reader.GetString(0);
+                        int winsValue = reader.GetInt32(1); // Retrieve wins as an integer
+
                         Debug.Log("Icon path retrieved from the database: " + iconPath);
+                        Debug.Log("Wins value retrieved from the database: " + winsValue);
 
                         // Now you have the 'iconPath' from the database. You can use it to load and display the icon in your UI.
                         // For example, you can assign it to a UI Image component like this:
                         userprofileimage.GetComponent<Image>().sprite = LoadSpriteFromPath(iconPath);
+                        winsNum.text = winsValue.ToString();
                     }
                     else
                     {
@@ -133,7 +142,6 @@ public class Profile : MonoBehaviour
                 transaction.Commit();
             }
         }
-
     }
 
 
