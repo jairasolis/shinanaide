@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     private bool isRespawning = false;
     private float respawnCountdown = 3f;
-    private AI aiObject; 
+    private AI aiObject;
 
     public Transform player1RespawnPoint;
     public Transform player2RespawnPoint;
@@ -86,21 +86,23 @@ public class GameManager : MonoBehaviour
 
     void DetermineWinner()
     {
+        string resultMessage = "";
         if (player1Score > player2Score)
         {
-            resultText.text = "Player 1 Wins!";
-            WinScene();
+            resultMessage = "Player 1 Wins!";
         }
         else if (player2Score > player1Score)
         {
-            resultText.text = "Player 2 Wins!";
-            WinScene();
+            resultMessage = "Player 2 Wins!";
         }
         else
         {
-            resultText.text = "It's a Tie!";
-            WinScene();
+            resultMessage = "It's a Tie!";
         }
+
+        PlayerPrefs.SetString("GameResult", resultMessage);
+
+        LoadScene("WinScene");
     }
 
     public void Player1Scores()
@@ -135,15 +137,12 @@ public class GameManager : MonoBehaviour
         {
             resultText.text = "Player 1 Wins!";
             wintoDB.add();
+
         }
         else if (player2Score >= 7)
         {
             resultText.text = "Player 2 Wins!";
         }
-    }
-    void WinScene()
-    {
-        SceneManager.LoadScene("15");
     }
 
     void RespawnPlayers()
@@ -171,5 +170,9 @@ public class GameManager : MonoBehaviour
             Puck.transform.position = RespawnPointPuck.position;
             Puck.transform.rotation = RespawnPointPuck.rotation;
         }
+    }
+    void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }

@@ -2054,7 +2054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181bcf7fcc3d7864d9e8c85ea80e0983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTime: 10
+  totalTime: 60
   timerText: {fileID: 16396226}
   player1ScoreText: {fileID: 1991583443}
   player2ScoreText: {fileID: 1267371685}
