@@ -30,7 +30,7 @@ public class gameload : MonoBehaviour
     }
 
     public void LoadGame(){
-        SceneManager.LoadScene(9);
+        SceneManager.LoadScene("GameMode1Scene");
     }
 
 }
