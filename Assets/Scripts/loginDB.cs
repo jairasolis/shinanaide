@@ -19,12 +19,21 @@ public class loginDB : MonoBehaviour
     {
         string filepath = Application.dataPath + DATABASE_NAME;
         conn = "URI=file:" + filepath;
+        dbconn = new SqliteConnection(conn);
     }
 
     public void AttemptLogin()
     {
 
-        using (dbconn = new SqliteConnection("URI=file:" + Application.dataPath + "/accountDB.db"))
+        if (usernameInput.text == "" || passwordInput.text == "")
+        {
+
+            loginStatusText.gameObject.SetActive(true);
+            loginStatusText.text = "Error detected. Field is null. Please try again.";
+
+        }
+
+        using (dbconn = new SqliteConnection(conn))
         {
             dbconn.Open();
             using (IDbCommand dbcmd = dbconn.CreateCommand())

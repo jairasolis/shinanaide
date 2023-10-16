@@ -400,6 +400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   userprofileimage: {fileID: 1879139575}
   textname: {fileID: 1969930650}
+  gambasValue: {fileID: 2019959739}
 --- !u!1 &432381679
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,7 +1113,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 583, y: 757.62}
+  m_AnchoredPosition: {x: 583, y: 756}
   m_SizeDelta: {x: 352.8683, y: 99.3882}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1830821148
@@ -1596,7 +1597,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 839, y: 757.62}
+  m_AnchoredPosition: {x: 839, y: 756}
   m_SizeDelta: {x: 352.8683, y: 99.3882}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2019959739
@@ -1733,7 +1734,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1380, y: 774}
+  m_AnchoredPosition: {x: 1308, y: 780}
   m_SizeDelta: {x: 140, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2084765399

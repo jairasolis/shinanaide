@@ -11,6 +11,7 @@ public class profileU : MonoBehaviour
 {
     public GameObject userprofileimage;
     public TextMeshProUGUI textname;
+    public TextMeshProUGUI gambasValue;
 
     void Start()
     {
@@ -34,7 +35,7 @@ public class profileU : MonoBehaviour
             using (var command = connection.CreateCommand())
             {
                 // Select the iconPath for the logged-in user
-                command.CommandText = "SELECT icon, wins FROM account WHERE username = @username";
+                command.CommandText = "SELECT icon, gambas FROM account WHERE username = @username";
                 command.Parameters.Add(new SqliteParameter("@username", username));
 
                 using (var reader = command.ExecuteReader())
@@ -42,8 +43,10 @@ public class profileU : MonoBehaviour
                     if (reader.Read())
                     {
                         string iconPath = reader.GetString(0);
+                        int gambasVal = reader.GetInt32(1);
 
                         userprofileimage.GetComponent<Image>().sprite = LoadSpriteFromPath(iconPath);
+                        gambasValue.text = gambasVal.ToString();
                     }
                     else
                     {
