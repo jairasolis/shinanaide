@@ -250,8 +250,8 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{inproject}: UserSettings/user.keystore'
-  AndroidKeyaliasName: testkey
+  AndroidKeystoreName: '{dedicated}: Downloads/user.keystore'
+  AndroidKeyaliasName: shinanade
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
   AndroidIsGame: 1

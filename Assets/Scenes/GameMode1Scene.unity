@@ -4795,7 +4795,7 @@ MeshRenderer:
     firstSubMesh: 0
     subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
+  m_ProbeAnchor: {fileID: 1337632729}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_ReceiveGI: 1
@@ -8278,7 +8278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12cfb16f091fd674cba62d010480f4f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectTransform: {fileID: 0}
+  ObjectTransform: {fileID: 1337632729}
   pushForce: 10
   pushRange: 2
 --- !u!195 &6401354556755309440

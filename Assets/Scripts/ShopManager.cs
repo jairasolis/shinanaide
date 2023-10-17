@@ -63,7 +63,7 @@ public class ShopManager : MonoBehaviour
         {
             shopPanels[i].titleTxt.text = shopItemsSO[i].title;
             shopPanels[i].descriptionTxt.text = shopItemsSO[i].description;
-            shopPanels[i].costTxt.text = "Gambas: " + shopItemsSO[i].baseCost.ToString();
+            shopPanels[i].costTxt.text = shopItemsSO[i].baseCost.ToString();
         }
     }
 
