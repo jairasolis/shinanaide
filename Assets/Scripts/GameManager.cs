@@ -173,6 +173,6 @@ public class GameManager : MonoBehaviour
     }
     void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene("WinScene");
     }
 }

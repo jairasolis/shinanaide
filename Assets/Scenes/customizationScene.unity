@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4440221, g: 0.49316514, b: 0.5722316, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -664,7 +664,7 @@ RectTransform:
   m_GameObject: {fileID: 1073290611}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -73.168}
-  m_LocalScale: {x: 0.9051741, y: 0.9051741, z: 0.9051741}
+  m_LocalScale: {x: 1.9691157, y: 1.9691157, z: 1.9691157}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1389828074}
@@ -674,7 +674,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 337, y: -171}
+  m_AnchoredPosition: {x: 848, y: -315}
   m_SizeDelta: {x: 975, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1073290613
@@ -694,10 +694,7 @@ MonoBehaviour:
   tabHover: {fileID: 21300000, guid: 104eb033ffd27204fbc712fb4103e150, type: 3}
   tabActive: {fileID: 21300000, guid: f0ee2c315b81cd0458df7a044ee982eb, type: 3}
   selectedTab: {fileID: 0}
-  objectsToSwap:
-  - {fileID: 1389828073}
-  - {fileID: 0}
-  - {fileID: 0}
+  objectsToSwap: []
 --- !u!114 &1073290614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -874,7 +871,7 @@ RectTransform:
   m_GameObject: {fileID: 1331206093}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2}
-  m_LocalScale: {x: 0.5966212, y: 0.5966212, z: 0.5966212}
+  m_LocalScale: {x: 1.7251898, y: 1.7251898, z: 1.7251898}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1840103895}
@@ -1838,7 +1835,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 408, y: 0}
   m_SizeDelta: {x: -46, y: -173.09998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2102068561
@@ -1854,7 +1851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.91764706}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
