@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
+
 
 public class Registration : MonoBehaviour
 {
@@ -20,16 +22,19 @@ public class Registration : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("name", nameField.text);
         form.AddField("password", passwordField.text);
-        WWW www = new WWW("https://shinanaide.000webhostapp.com/register.php", form);
-        yield return www;
-        if (www.text == "0")
+
+        UnityWebRequest www = UnityWebRequest.Post("https://shinanaide.000webhostapp.com/register.php", form);
+
+        yield return www.SendWebRequest(); ;
+
+        if (www.downloadHandler.text == "0")
         {
             Debug.Log("User Created Succesfully");
             UnityEngine.SceneManagement.SceneManager.LoadScene("loginScene");
         }
         else
         {
-            Debug.Log("User Creation Failed. Error #");
+            Debug.Log("User Creation Failed. Error #" + www.downloadHandler.text);
         }
     }
 
