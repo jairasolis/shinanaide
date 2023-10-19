@@ -7,18 +7,19 @@ public class web : MonoBehaviour
 {
     void Start()
     {
-        StartCoroutine(GetText());
+        StartCoroutine(GetDate());
+        StartCoroutine(GetUser());
     }
 
-    IEnumerator GetText()
+    IEnumerator GetDate()
     {
         using (UnityWebRequest www = UnityWebRequest.Get("http://localhost/unityScript/getDate.php"))
         {
-            yield return www.Send();
+            yield return www.SendWebRequest();
 
-            if (www.isNetworkError || www.isHttpError)
+            if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
             {
-                Debug.Log(www.error);            
+                Debug.Log(www.error);
             }
             else
             {
@@ -27,4 +28,40 @@ public class web : MonoBehaviour
             }
         }
     }
+
+    IEnumerator GetUser()
+    {
+        using (UnityWebRequest www = UnityWebRequest.Get("https://shinanaide.000webhostapp.com/getUsers.php"))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text);
+                byte[] results = www.downloadHandler.data;
+            }
+        }
+    }
+
+    //IEnumerator login()
+    //{
+    //    using (UnityWebRequest www = UnityWebRequest.Post("https://www.my-server.com/myapi", "{ \"field1\": 1, \"field2\": 2 }", "application/json"))
+    //    {
+    //        yield return www.SendWebRequest();
+
+    //        if (www.result != UnityWebRequest.Result.Success)
+    //        {
+    //            Debug.Log(www.error);
+    //        }
+    //        else
+    //        {
+    //            Debug.Log("Form upload complete!");
+    //        }
+    //    }
+    //}
 }
+
