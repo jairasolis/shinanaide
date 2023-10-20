@@ -5,13 +5,22 @@ using UnityEngine.Networking;
 
 public class web : MonoBehaviour
 {
+
+    private loginScript loginScript;
+    private registerScript registerScript;
+
     void Start()
     {
-        StartCoroutine(GetDate());
-        StartCoroutine(GetUser());
+
+        loginScript = GetComponent<loginScript>();
+        registerScript = GetComponent<registerScript>();
+        //StartCoroutine(GetDate());
+        //StartCoroutine(GetUser());
+        //StartCoroutine(login("akemi", "akemipasss"));
+        //StartCoroutine(registerUser("aaaa", "aaaa"));
     }
 
-    IEnumerator GetDate()
+    public IEnumerator GetDate()
     {
         using (UnityWebRequest www = UnityWebRequest.Get("http://localhost/unityScript/getDate.php"))
         {
@@ -29,7 +38,7 @@ public class web : MonoBehaviour
         }
     }
 
-    IEnumerator GetUser()
+    public IEnumerator GetUser()
     {
         using (UnityWebRequest www = UnityWebRequest.Get("https://shinanaide.000webhostapp.com/getUsers.php"))
         {
@@ -47,21 +56,45 @@ public class web : MonoBehaviour
         }
     }
 
-    //IEnumerator login()
-    //{
-    //    using (UnityWebRequest www = UnityWebRequest.Post("https://www.my-server.com/myapi", "{ \"field1\": 1, \"field2\": 2 }", "application/json"))
-    //    {
-    //        yield return www.SendWebRequest();
+    public IEnumerator loginUser(string username, string password)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("loginUser", username);
+        form.AddField("loginPass", password);
 
-    //        if (www.result != UnityWebRequest.Result.Success)
-    //        {
-    //            Debug.Log(www.error);
-    //        }
-    //        else
-    //        {
-    //            Debug.Log("Form upload complete!");
-    //        }
-    //    }
-    //}
+        UnityWebRequest www = UnityWebRequest.Post("https://shinanaide.000webhostapp.com/login.php", form);
+        yield return www.SendWebRequest();
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            string response = www.downloadHandler.text;
+            Debug.Log(response);
+            loginScript.UpdateLoginStatus(response); // Update the login status
+        }
+    }
+
+    public IEnumerator registerUser(string username, string password)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("loginUser", username);
+        form.AddField("loginPass", password);
+
+        UnityWebRequest www = UnityWebRequest.Post("https://shinanaide.000webhostapp.com/register.php", form);
+        yield return www.SendWebRequest();
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            string response = www.downloadHandler.text;
+            Debug.Log(response);
+            registerScript.UpdateRegisterStatus(response); // update the login status
+        }
+    }
 }
-

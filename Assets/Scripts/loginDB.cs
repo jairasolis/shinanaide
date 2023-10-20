@@ -24,15 +24,6 @@ public class loginDB : MonoBehaviour
 
     public void AttemptLogin()
     {
-
-        if (usernameInput.text == "" || passwordInput.text == "")
-        {
-
-            loginStatusText.gameObject.SetActive(true);
-            loginStatusText.text = "Error detected. Field is null. Please try again.";
-
-        }
-
         using (dbconn = new SqliteConnection(conn))
         {
             dbconn.Open();

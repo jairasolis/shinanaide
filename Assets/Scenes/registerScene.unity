@@ -1317,7 +1317,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1878445785}
         m_TargetAssemblyTypeName: DBaccount, Assembly-CSharp
-        m_MethodName: AddAccount
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1878445788}
+        m_TargetAssemblyTypeName: Registration, Assembly-CSharp
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1393,7 +1405,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224395341}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e2623a6d9ace4341af01f3d4e0354d2, type: 3}
   m_Name: 
@@ -1737,7 +1749,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1678927204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2340,6 +2352,9 @@ GameObject:
   - component: {fileID: 1878445786}
   - component: {fileID: 1878445785}
   - component: {fileID: 1878445787}
+  - component: {fileID: 1878445788}
+  - component: {fileID: 1878445789}
+  - component: {fileID: 1878445790}
   m_Layer: 0
   m_Name: script
   m_TagString: Untagged
@@ -2391,3 +2406,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c219974f89f5ef4e863e0d7f64fdf24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1878445788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878445784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c8e808dc463ac47bdc9f6343a80f88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameField: {fileID: 331543646}
+  passwordField: {fileID: 1802534155}
+  submitButton: {fileID: 1224395342}
+--- !u!114 &1878445789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878445784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9098d493cf2fb87429e8c37f9fc26c39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1878445790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878445784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08f4acc89a475a4478839beeb4e13319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usernameInput: {fileID: 331543646}
+  passwordInput: {fileID: 1802534155}
+  registerButton: {fileID: 1224395342}
+  registerStatusText: {fileID: 1735832659}
