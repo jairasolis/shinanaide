@@ -79,5 +79,15 @@ public class sceneMethod : MonoBehaviour
     {
         SceneManager.LoadScene("AudioSettings");
     }
+    public void loadWaitingScene()
+    {
+        SceneManager.LoadScene("waitingScene");
+    }
+
+    public void loadMatchmakingScene()
+    {
+        SceneManager.LoadScene("matchmakingScene");
+    }
+
 }
 
