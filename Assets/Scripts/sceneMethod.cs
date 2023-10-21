@@ -69,5 +69,15 @@ public class sceneMethod : MonoBehaviour
     public void loadCharacterScene(){
         SceneManager.LoadScene("customizationScene");
     }
+
+    public void loadGameSettingtwoScene()
+    {
+        SceneManager.LoadScene("GamesettingsScene");
+    }
+
+    public void loadAudiotwoScene()
+    {
+        SceneManager.LoadScene("AudioSettings");
+    }
 }
 
