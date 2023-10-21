@@ -53,10 +53,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: d56238d37e54fc640a4c5d5348bd90e0
-  - enabled: 1
-    path: Assets/Scenes/matchmakingScene.unity
-    guid: 790b091c2ea059c4482b10c06902d0cd
-  - enabled: 1
-    path: Assets/Scenes/waitingScene.unity
-    guid: 59a97a5351acedd46bd755278bede221
   m_configObjects: {}
