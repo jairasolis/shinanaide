@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.UI; 
+using UnityEngine.UI;
 
 
 public class PlayerController : MonoBehaviour
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>(); 
+        _rigidbody = GetComponent<Rigidbody>();
         if (slideButton != null)
         {
             dashDirection = transform.forward;
@@ -42,13 +42,21 @@ public class PlayerController : MonoBehaviour
             _animator.SetBool("IsDashing", true);
 
             Vector3 targetPosition = transform.position + dashDirection * dashDistance;
+
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, dashDirection, out hit, dashDistance))
+            {
+                targetPosition = hit.point;
+            }
+
             StartCoroutine(MoveCharacter(targetPosition));
         }
     }
 
+
     IEnumerator MoveCharacter(Vector3 targetPosition)
     {
-        float duration = 0.5f; 
+        float duration = 0.5f;
         float elapsedTime = 0f;
         Vector3 startingPosition = transform.position;
 
@@ -59,7 +67,7 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
 
-        
+
         transform.position = targetPosition;
         isSliding = false;
         _animator.SetBool("IsDashing", false);
