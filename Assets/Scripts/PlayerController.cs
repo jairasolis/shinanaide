@@ -2,18 +2,17 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
-
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody _rigidbody;
-    [SerializeField] private FixedJoystick _joystick;
     [SerializeField] private float forceMagnitude;
-    [SerializeField] private Animator _animator;
-    [SerializeField] private float _moveSpeed;
-    [SerializeField] private Button _kickButton;
-    [SerializeField] private GameObject puck;
     [SerializeField] private float pushRange;
-    [SerializeField] private Button slideButton;
+    [SerializeField] private float _moveSpeed;
+    private Rigidbody _rigidbody;
+    private FixedJoystick _joystick;
+    private Animator _animator;
+    private GameObject puck;
+    private Button kickButton;
+    private Button slideButton;
     private bool isSliding = false;
     private bool canPerformSlideDash = true;
     private float dashDistance = 5f;
@@ -24,13 +23,23 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _joystick = GameObject.FindGameObjectWithTag("Joystick")?.GetComponent<FixedJoystick>();
+        _animator = GetComponent<Animator>();
+        puck = GameObject.FindGameObjectWithTag("Puck");
+        kickButton = GameObject.FindGameObjectWithTag("KickButton")?.GetComponent<Button>();
+        slideButton = GameObject.FindGameObjectWithTag("SlideButton")?.GetComponent<Button>();
+
         if (slideButton != null)
         {
             dashDirection = transform.forward;
             slideButton.onClick.AddListener(PerformSlideDash);
         }
-        _kickButton.onClick.AddListener(StartKicking);
+        if (kickButton != null)
+        {
+            kickButton.onClick.AddListener(StartKicking);
+        }
     }
+
 
     void PerformSlideDash()
     {
@@ -47,11 +56,13 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(transform.position, dashDirection, out hit, dashDistance))
             {
                 targetPosition = hit.point;
+
             }
 
             StartCoroutine(MoveCharacter(targetPosition));
         }
     }
+
 
 
     IEnumerator MoveCharacter(Vector3 targetPosition)
@@ -76,35 +87,38 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 inputDirection = new Vector3(_joystick.Horizontal, 0f, _joystick.Vertical);
-        inputDirection.Normalize();
-
-        Vector3 movement = inputDirection * _moveSpeed;
-        movement.y = _rigidbody.velocity.y;
-
-        if (!_isKicking)
+        if (_joystick != null)
         {
+            Vector3 inputDirection = new Vector3(_joystick.Horizontal, 0f, _joystick.Vertical);
+            inputDirection.Normalize();
 
-            if (inputDirection == Vector3.zero)
+            Vector3 movement = inputDirection * _moveSpeed;
+            movement.y = _rigidbody.velocity.y;
+
+            if (!_isKicking)
             {
-                movement = Vector3.Lerp(_rigidbody.velocity, Vector3.zero, Time.fixedDeltaTime * 10f);
+                if (inputDirection == Vector3.zero)
+                {
+                    movement = Vector3.Lerp(_rigidbody.velocity, Vector3.zero, Time.fixedDeltaTime * 10f);
+                }
+                _rigidbody.velocity = movement;
             }
-            _rigidbody.velocity = movement;
-        }
 
-        if (inputDirection != Vector3.zero)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(inputDirection);
-            _rigidbody.MoveRotation(targetRotation);
-            _animator.SetBool("IsRunning", true);
-        }
-        else
-        {
-            _rigidbody.velocity = Vector3.zero;
-            _animator.SetBool("IsRunning", false);
-            _animator.SetBool("IsKicking", false);
+            if (inputDirection != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(inputDirection);
+                _rigidbody.MoveRotation(targetRotation);
+                _animator.SetBool("IsRunning", true);
+            }
+            else
+            {
+                _rigidbody.velocity = Vector3.zero;
+                _animator.SetBool("IsRunning", false);
+                _animator.SetBool("IsKicking", false);
+            }
         }
     }
+
 
 
     private void StartKicking()
@@ -134,5 +148,4 @@ public class PlayerController : MonoBehaviour
     {
         Physics.IgnoreCollision(puck.GetComponent<Collider>(), GetComponent<Collider>(), false);
     }
-
 }

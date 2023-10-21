@@ -993,6 +993,7 @@ MonoBehaviour:
   skinOptions:
   - sprite: {fileID: 21300000, guid: b7b7b63c2a118be48b50b211f59475d5, type: 3}
     prefab: {fileID: 4467052398608953329, guid: 0638130c06c14fc49b955144f0aead6a, type: 3}
+<<<<<<< Updated upstream
     skinName: Fire
   - sprite: {fileID: 21300000, guid: 3583da2893fec794bb8de0f631edd74b, type: 3}
     prefab: {fileID: 3126551215040217244, guid: 31c764ad72b60d24ea1eaddd0eaba087, type: 3}
@@ -1000,6 +1001,15 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 8d817c70ac8357948adcf013d5003bf0, type: 3}
     prefab: {fileID: 4980952305268053848, guid: e362481e67d8e4e469db942aa5594481, type: 3}
     skinName: Water
+=======
+    skinName: FIRE
+  - sprite: {fileID: 21300000, guid: 3583da2893fec794bb8de0f631edd74b, type: 3}
+    prefab: {fileID: 3126551215040217244, guid: 31c764ad72b60d24ea1eaddd0eaba087, type: 3}
+    skinName: ERT
+  - sprite: {fileID: 21300000, guid: 8d817c70ac8357948adcf013d5003bf0, type: 3}
+    prefab: {fileID: 4980952305268053848, guid: e362481e67d8e4e469db942aa5594481, type: 3}
+    skinName: WATER
+>>>>>>> Stashed changes
 --- !u!4 &839018910
 Transform:
   m_ObjectHideFlags: 0

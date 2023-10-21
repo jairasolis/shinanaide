@@ -11,6 +11,9 @@ TagManager:
   - Player2
   - needed
   - profileScript
+  - KickButton
+  - SlideButton
+  - Joystick
   layers:
   - Default
   - TransparentFX
@@ -20,7 +23,7 @@ TagManager:
   - UI
   - Puck
   - Player2
-  - 
+  - Walls
   - 
   - 
   - 
