@@ -20,8 +20,4 @@ public class displayProfile : MonoBehaviour
     
     }   
 
-    void Update()
-    {
-        
-    }
 }

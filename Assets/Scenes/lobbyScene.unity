@@ -296,6 +296,7 @@ GameObject:
   - component: {fileID: 393884838}
   - component: {fileID: 393884837}
   - component: {fileID: 393884841}
+  - component: {fileID: 393884842}
   m_Layer: 5
   m_Name: LobbyC
   m_TagString: Untagged
@@ -393,7 +394,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393884836}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88d907b36f7e1ae46b6e5201bf1e547d, type: 3}
   m_Name: 
@@ -401,6 +402,21 @@ MonoBehaviour:
   userprofileimage: {fileID: 1879139575}
   textname: {fileID: 1969930650}
   gambasValue: {fileID: 2019959739}
+--- !u!114 &393884842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393884836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d6e4d71c57554e4b91322b8faf73406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usernameText: {fileID: 1969930650}
+  gambasText: {fileID: 2019959739}
+  userlobbyimage: {fileID: 1879139575}
 --- !u!1 &432381679
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,26 +620,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 854781211}
-  - component: {fileID: 854781210}
+  - component: {fileID: 854781212}
+  - component: {fileID: 854781214}
+  - component: {fileID: 854781215}
   m_Layer: 0
-  m_Name: web
+  m_Name: dbscript
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &854781210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854781209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9098d493cf2fb87429e8c37f9fc26c39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &854781211
 Transform:
   m_ObjectHideFlags: 0
@@ -639,6 +645,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &854781212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854781209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d6e4d71c57554e4b91322b8faf73406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usernameText: {fileID: 1969930650}
+  gambasText: {fileID: 2019959739}
+  userlobbyimage: {fileID: 1879139575}
+--- !u!114 &854781214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854781209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e617e618572c5984d8cc9249b5847ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Web: {fileID: 854781215}
+--- !u!114 &854781215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854781209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9098d493cf2fb87429e8c37f9fc26c39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyUsername: 
+  lobbyGambas: 
+  wins: 
+  icon: 
 --- !u!1 &1179821072
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,14 +20,16 @@ public class loginScript : MonoBehaviour
         {
             if (usernameInput.text == "" || passwordInput.text == "")
             {
-
                 loginStatusText.gameObject.SetActive(true);
                 loginStatusText.text = "Error detected. Field is null. Please try again.";
-
             }
             else
             {
                 StartCoroutine(main.Instance.Web.loginUser(usernameInput.text, passwordInput.text));
+                PlayerPrefs.SetString("LoggedInUsername", usernameInput.text); // Store the username in PlayerPrefs
+                StartCoroutine(main.Instance.Web.getInfo(usernameInput.text));
+
+                PlayerPrefs.Save(); // Save the PlayerPrefs data
             }
         });
     }
