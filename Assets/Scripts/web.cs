@@ -201,4 +201,26 @@ public class web : MonoBehaviour
             //profileDB.UpdateUserProfileImage(response);
         }
     }
+
+    public IEnumerator insertItemID(int itemID)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("loginUser", PlayerPrefs.GetString("LoggedInUsername"));
+        form.AddField("loginItemID", itemID);
+
+        UnityWebRequest www = UnityWebRequest.Post("https://shinanaide.000webhostapp.com/insertItemID.php", form);
+        yield return www.SendWebRequest();
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            string response = www.downloadHandler.text;
+            Debug.Log(response);
+            registerScript.UpdateRegisterStatus(response); // update the login status
+        }
+    }
+
 }
