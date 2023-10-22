@@ -79,5 +79,10 @@ public class sceneMethod : MonoBehaviour
     {
         SceneManager.LoadScene("AudioSettings");
     }
+
+    public void loadselectionScene()
+    {
+        SceneManager.LoadScene("Selection");
+    }
 }
 
