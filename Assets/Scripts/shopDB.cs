@@ -10,11 +10,14 @@ using UnityEngine.Networking;
 public class shopDB : MonoBehaviour
 {
     public TextMeshProUGUI gambasText;
+    public ShopManager ShopManager;
 
     void Start()
     {
         string gambas = PlayerPrefs.GetString("userGambas");
         gambasText.text = gambas;
+        ShopManager.CheckPurchaseable();
+
     }
 
     public void insertItem(int item)
