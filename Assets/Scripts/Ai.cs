@@ -3,7 +3,6 @@ using UnityEngine.AI;
 
 public class AI : MonoBehaviour
 {
-    public Transform ObjectTransform;
     private NavMeshAgent agent;
     private Animator animator;
     public float pushForce = 10f;
@@ -22,20 +21,25 @@ public class AI : MonoBehaviour
     {
         if (gameInProgress && isFollowingPuck)
         {
-            float distanceToObject = Vector3.Distance(transform.position, ObjectTransform.position);
+            GameObject puckObject = GameObject.FindGameObjectWithTag("Puck");
 
-            if (distanceToObject <= pushRange)
+            if (puckObject != null)
             {
-                animator.SetBool("IsKicking", true);
-                UsePushForce();
-            }
-            else
-            {
-                animator.SetBool("IsKicking", false);
-            }
+                float distanceToObject = Vector3.Distance(transform.position, puckObject.transform.position);
 
-            agent.destination = ObjectTransform.position;
-            animator.SetFloat("Speed", agent.velocity.magnitude);
+                if (distanceToObject <= pushRange)
+                {
+                    animator.SetBool("IsKicking", true);
+                    UsePushForce(puckObject.transform);
+                }
+                else
+                {
+                    animator.SetBool("IsKicking", false);
+                }
+
+                agent.destination = puckObject.transform.position;
+                animator.SetFloat("Speed", agent.velocity.magnitude);
+            } 
         }
         else
         {
@@ -44,12 +48,12 @@ public class AI : MonoBehaviour
         }
     }
 
-    void UsePushForce()
+    void UsePushForce(Transform puckTransform)
     {
-        Rigidbody objectRigidbody = ObjectTransform.GetComponent<Rigidbody>();
+        Rigidbody objectRigidbody = puckTransform.GetComponent<Rigidbody>();
         if (objectRigidbody != null)
         {
-            Vector3 pushDirection = (ObjectTransform.position - transform.position).normalized;
+            Vector3 pushDirection = (puckTransform.position - transform.position).normalized;
             float reducedPushForce = pushForce * 0.2f;
             objectRigidbody.AddForce(pushDirection * reducedPushForce, ForceMode.Impulse);
         }
@@ -59,8 +63,6 @@ public class AI : MonoBehaviour
     {
         isFollowingPuck = shouldFollow;
         animator.SetBool("IsKicking", false);
-   
-
     }
 
     public void SetGameInProgress(bool inProgress)
