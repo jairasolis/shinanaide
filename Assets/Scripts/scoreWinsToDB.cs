@@ -29,7 +29,6 @@ public class scoreWinsToDB : MonoBehaviour
             {
                 using (var command = connection.CreateCommand())
                 {
-                    // Increment the wins count for the given username
                     command.CommandText = "UPDATE account SET gambas = gambas + 3 WHERE username = @username";
 
                     command.Parameters.Add(new SqliteParameter("@username", username));
@@ -38,12 +37,12 @@ public class scoreWinsToDB : MonoBehaviour
 
                     if (rowsUpdated > 0)
                     {
-                        transaction.Commit(); // Commit the transaction if the update was successful
+                        transaction.Commit();
                         Debug.Log("Wins updated for user: " + username);
                     }
                     else
                     {
-                        transaction.Rollback(); // Roll back the transaction if the update failed
+                        transaction.Rollback(); 
                         Debug.LogError("Failed to update wins for user: " + username);
                     }
                 }
@@ -66,7 +65,6 @@ public class scoreWinsToDB : MonoBehaviour
             {
                 using (var command = connection.CreateCommand())
                 {
-                    // Increment the wins count for the given username
                     command.CommandText = "UPDATE account SET wins = wins + 1 WHERE username = @username";
 
                     command.Parameters.Add(new SqliteParameter("@username", username));
@@ -75,12 +73,12 @@ public class scoreWinsToDB : MonoBehaviour
 
                     if (rowsUpdated > 0)
                     {
-                        transaction.Commit(); // Commit the transaction if the update was successful
+                        transaction.Commit(); 
                         Debug.Log("Wins updated for user: " + username);
                     }
                     else
                     {
-                        transaction.Rollback(); // Roll back the transaction if the update failed
+                        transaction.Rollback();
                         Debug.LogError("Failed to update wins for user: " + username);
                     }
                 }

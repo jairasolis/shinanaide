@@ -178,4 +178,27 @@ public class web : MonoBehaviour
             PlayerPrefs.Save(); // Save the PlayerPrefs data
         }
     }
+
+    public IEnumerator updateGambasWins()
+    {
+        Debug.Log("gambas updated");
+
+        WWWForm form = new WWWForm();
+        form.AddField("loginUser", PlayerPrefs.GetString("LoggedInUsername"));
+
+        UnityWebRequest www = UnityWebRequest.Post("https://shinanaide.000webhostapp.com/updateGambasWins.php", form);
+        yield return www.SendWebRequest();
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            string response = www.downloadHandler.text;
+            Debug.Log(response);
+
+            //profileDB.UpdateUserProfileImage(response);
+        }
+    }
 }

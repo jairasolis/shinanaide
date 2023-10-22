@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
     public Transform player1RespawnPoint;
     public Transform player2RespawnPoint;
     public Transform RespawnPointPuck;
-    scoreWinsToDB wintoDB;
 
     void Start()
     {
@@ -39,7 +38,6 @@ public class GameManager : MonoBehaviour
         UpdateTimerDisplay();
         UpdatePlayerScores();
         aiObject = GameObject.FindGameObjectWithTag("Player2").GetComponent<AI>();
-        wintoDB = GameObject.FindGameObjectWithTag("needed").GetComponent<scoreWinsToDB>();
     }
 
     void Update()
@@ -90,6 +88,7 @@ public class GameManager : MonoBehaviour
         if (player1Score > player2Score)
         {
             resultMessage = "Player 1 Wins!";
+            StartCoroutine(main.Instance.Web.updateGambasWins());
         }
         else if (player2Score > player1Score)
         {
@@ -136,8 +135,6 @@ public class GameManager : MonoBehaviour
         if (player1Score >= 7)
         {
             resultText.text = "Player 1 Wins!";
-            wintoDB.add();
-
         }
         else if (player2Score >= 7)
         {

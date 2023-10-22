@@ -5490,7 +5490,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1432532613}
-  - component: {fileID: 1432532612}
+  - component: {fileID: 1432532616}
+  - component: {fileID: 1432532615}
+  - component: {fileID: 1432532614}
   m_Layer: 0
   m_Name: dbscript
   m_TagString: needed
@@ -5498,18 +5500,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1432532612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432532611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0fcf81ab2d2e1547ad58f8d2b35dbfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1432532613
 Transform:
   m_ObjectHideFlags: 0
@@ -5525,6 +5515,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1432532614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432532611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9098d493cf2fb87429e8c37f9fc26c39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyUsername: 
+  lobbyGambas: 
+  wins: 
+  icon: 
+--- !u!114 &1432532615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432532611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e617e618572c5984d8cc9249b5847ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Web: {fileID: 1432532614}
+--- !u!114 &1432532616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432532611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 181bcf7fcc3d7864d9e8c85ea80e0983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalTime: 60
+  timerText: {fileID: 16396226}
+  player1ScoreText: {fileID: 1991583443}
+  player2ScoreText: {fileID: 1267371685}
+  resultText: {fileID: 637790073}
+  player1RespawnPoint: {fileID: 1876356334}
+  player2RespawnPoint: {fileID: 1329467432}
+  RespawnPointPuck: {fileID: 1213682076}
 --- !u!1 &1554595751
 GameObject:
   m_ObjectHideFlags: 0
