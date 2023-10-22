@@ -84,5 +84,9 @@ public class sceneMethod : MonoBehaviour
     {
         SceneManager.LoadScene("Selection");
     }
+    public void loadInventoryScene()
+    {
+        SceneManager.LoadScene("inventory");
+    }
 }
 
