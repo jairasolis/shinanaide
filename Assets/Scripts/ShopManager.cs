@@ -18,6 +18,11 @@ public class ShopManager : MonoBehaviour
     public TextMeshProUGUI gambasText;
 
 
+    public string lobbyUsername;
+    public string lobbyGambas;
+    public string wins;
+    public string icon;
+
     void Start()
     {
         for (int i = 0; i < shopItemsSO.Length; i++)
@@ -88,30 +93,45 @@ public class ShopManager : MonoBehaviour
     {
         CheckPurchaseable();
         insertItem(1);
+        StartCoroutine(purchase());
+        StartCoroutine(getInfo());
+
     }
 
     public void item2()
     {
         CheckPurchaseable();
         insertItem(2);
+        StartCoroutine(purchase());
+        StartCoroutine(getInfo());
+
     }
 
     public void item3()
     {
         CheckPurchaseable();
         insertItem(3);
+        StartCoroutine(purchase());
+        StartCoroutine(getInfo());
+
     }
 
     public void item4()
     {
         CheckPurchaseable();
         insertItem(4);
+        StartCoroutine(purchase());
+        StartCoroutine(getInfo());
+
     }
 
     public void item5()
     {
         CheckPurchaseable();
         insertItem(5);
+        StartCoroutine(purchase());
+        StartCoroutine(getInfo());
+
     }
 
     public IEnumerator insertItemID(int itemID)
@@ -134,45 +154,109 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    // sqlite database
+    public IEnumerator purchase()
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("loginUser", PlayerPrefs.GetString("LoggedInUsername"));
 
-    //public void updateGambas()
-    //{
-    //    string username = PlayerPrefs.GetString("LoggedInUsername"); // Get the logged-in username
+        UnityWebRequest www = UnityWebRequest.Post("https://shinanaide.000webhostapp.com/purchase.php", form);
+        yield return www.SendWebRequest();
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            string response = www.downloadHandler.text;
+            Debug.Log(response);
+        }
+    }
+
+    public IEnumerator getInfo()
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("loginUser", PlayerPrefs.GetString("LoggedInUsername"));
+        //form.AddField("loginPass", password);
+
+        UnityWebRequest www = UnityWebRequest.Post("https://shinanaide.000webhostapp.com/getInfo.php", form);
+        yield return www.SendWebRequest();
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            string s = www.downloadHandler.text;
+            Debug.Log(s);
+
+            lobbyUsername = s.Split('-')[0];
+            lobbyGambas = s.Split("-")[1];
+            wins = s.Split("-")[2];
+            icon = s.Split("-")[3];
 
 
-    //    string databasePath = Application.dataPath + "/accountDB.db";
-    //    string connectionString = "URI=file:" + databasePath;
+            PlayerPrefs.SetString("userGambas", lobbyGambas); // Store the username in PlayerPrefs
+            PlayerPrefs.Save(); // Save the PlayerPrefs data
 
-    //    using (var connection = new SqliteConnection(connectionString))
-    //    {
-    //        connection.Open();
+            PlayerPrefs.SetString("userWins", wins); // Store the username in PlayerPrefs
+            PlayerPrefs.Save(); // Save the PlayerPrefs data
 
-    //        using (var command = connection.CreateCommand())
-    //        {
-    //            // Select the iconPath for the logged-in user
-    //            command.CommandText = "SELECT gambas FROM account WHERE username = @username";
-    //            command.Parameters.Add(new SqliteParameter("@username", username));
+            PlayerPrefs.SetString("userIcon", icon); // Store the username in PlayerPrefs
+            PlayerPrefs.Save(); // Save the PlayerPrefs data
 
-    //            using (var reader = command.ExecuteReader())
-    //            {
-    //                if (reader.Read())
-    //                {
-    //                    int gambasValue = reader.GetInt32(0);
 
-    //                    Debug.Log("gambas retrieved from the database: " + gambasValue);
+            Debug.Log(icon);
 
-    //                    // Now you have the 'iconPath' from the database. You can use it to load and display the icon in your UI.
-    //                    // For example, you can assign it to a UI Image component like this:
-    //                    gambasNum.text = gambasValue.ToString();
-    //                }
-    //                else
-    //                {
-    //                    Debug.LogError("User's icon not found in the database.");
-    //                }
-    //            }
-    //        }
-    //    }
-    //}
+            //lobbyDBScript.UpdateInfo(lobbyUsername, lobbyGambas);
 
+            //Debug.Log(lobbyUsername);
+            //Debug.Log(lobbyGambas);
+            //Debug.Log(wins);
+
+        }
+
+    }
+
+        // sqlite database
+
+        //public void updateGambas()
+        //{
+        //    string username = PlayerPrefs.GetString("LoggedInUsername"); // Get the logged-in username
+
+
+        //    string databasePath = Application.dataPath + "/accountDB.db";
+        //    string connectionString = "URI=file:" + databasePath;
+
+        //    using (var connection = new SqliteConnection(connectionString))
+        //    {
+        //        connection.Open();
+
+        //        using (var command = connection.CreateCommand())
+        //        {
+        //            // Select the iconPath for the logged-in user
+        //            command.CommandText = "SELECT gambas FROM account WHERE username = @username";
+        //            command.Parameters.Add(new SqliteParameter("@username", username));
+
+        //            using (var reader = command.ExecuteReader())
+        //            {
+        //                if (reader.Read())
+        //                {
+        //                    int gambasValue = reader.GetInt32(0);
+
+        //                    Debug.Log("gambas retrieved from the database: " + gambasValue);
+
+        //                    // Now you have the 'iconPath' from the database. You can use it to load and display the icon in your UI.
+        //                    // For example, you can assign it to a UI Image component like this:
+        //                    gambasNum.text = gambasValue.ToString();
+        //                }
+        //                else
+        //                {
+        //                    Debug.LogError("User's icon not found in the database.");
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
 }

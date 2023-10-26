@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: DIRT BALL
   description: Description
-  baseCost: 260
+  baseCost: 10
   itemImage: {fileID: 21300000, guid: 85e7ea84f2b243043927a4c11d68c1fb, type: 3}

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: FIRE BALL
   description: Unleash the burning desire.
-  baseCost: 315
+  baseCost: 10
   itemImage: {fileID: 21300000, guid: cb193ee5a45c0074cbbf19f7817d029e, type: 3}

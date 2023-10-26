@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
-using UnityEngine.SceneManagement;
-
 
 public class GameManager : MonoBehaviour
 {
@@ -24,20 +22,16 @@ public class GameManager : MonoBehaviour
     private int player1Score = 0;
     private int player2Score = 0;
 
-    private bool isRespawning = false;
-    private float respawnCountdown = 3f;
-    private AI aiObject;
-
     public Transform player1RespawnPoint;
     public Transform player2RespawnPoint;
     public Transform RespawnPointPuck;
+
 
     void Start()
     {
         timeRemaining = totalTime;
         UpdateTimerDisplay();
         UpdatePlayerScores();
-        aiObject = GameObject.FindGameObjectWithTag("Player2").GetComponent<AI>();
     }
 
     void Update()
@@ -50,20 +44,6 @@ public class GameManager : MonoBehaviour
         else
         {
             DetermineWinner();
-        }
-        if (isRespawning)
-        {
-            respawnCountdown -= Time.deltaTime;
-
-            if (respawnCountdown <= 0f)
-            {
-                RespawnPlayers();
-                RespawnPuck();
-                respawnCountdown = 3f;
-                isRespawning = false;
-                aiObject.SetShouldFollowPuck(true);
-                aiObject.SetGameInProgress(true);
-            }
         }
     }
 
@@ -84,78 +64,75 @@ public class GameManager : MonoBehaviour
 
     void DetermineWinner()
     {
-        string resultMessage = "";
         if (player1Score > player2Score)
         {
-            resultMessage = "Player 1 Wins!";
-            StartCoroutine(main.Instance.Web.updateGambasWins());
+            resultText.text = "Player 1 Wins!";
         }
         else if (player2Score > player1Score)
         {
-            resultMessage = "Player 2 Wins!";
+            resultText.text = "Player 2 Wins!";
         }
         else
         {
-            resultMessage = "It's a Tie!";
+            resultText.text = "It's a Tie!";
         }
-
-        PlayerPrefs.SetString("GameResult", resultMessage);
-
-        LoadScene("WinScene");
     }
 
     public void Player1Scores()
     {
-        if (player1Score < 7 && !isRespawning)
+        if (player1Score < 3)
         {
-            player1Score++;
+            player1Score+=2;
             UpdatePlayerScores();
             CheckWinCondition();
-            isRespawning = true;
-            aiObject.SetShouldFollowPuck(false);
-            aiObject.SetGameInProgress(false);
+            RespawnPlayers();
+            RespawnPuck();
         }
     }
 
     public void Player2Scores()
     {
-        if (player2Score < 7 && !isRespawning)
+        if (player2Score < 3)
         {
-            player2Score++;
+            player2Score+=2;
             UpdatePlayerScores();
             CheckWinCondition();
-            isRespawning = true;
-            aiObject.SetShouldFollowPuck(false);
-            aiObject.SetGameInProgress(false);
+            RespawnPlayers();
+            RespawnPuck();
         }
     }
 
     void CheckWinCondition()
     {
-        if (player1Score >= 7)
+        if (player1Score >= 3)
         {
-            resultText.text = "Player 1 Wins!";
+            resultText.text = "Tama na!";
+
         }
-        else if (player2Score >= 7)
+        else if (player2Score >= 3)
         {
-            resultText.text = "Player 2 Wins!";
+            resultText.text = "Tama na!";
         }
     }
 
     void RespawnPlayers()
     {
+
         GameObject player1 = GameObject.FindGameObjectWithTag("Player1");
         if (player1 != null)
         {
             player1.transform.position = player1RespawnPoint.position;
             player1.transform.rotation = player1RespawnPoint.rotation;
+
         }
+
 
         GameObject player2 = GameObject.FindGameObjectWithTag("Player2");
         if (player2 != null)
         {
             player2.transform.position = player2RespawnPoint.position;
             player2.transform.rotation = player2RespawnPoint.rotation;
+
         }
     }
 
@@ -167,9 +144,5 @@ public class GameManager : MonoBehaviour
             Puck.transform.position = RespawnPointPuck.position;
             Puck.transform.rotation = RespawnPointPuck.rotation;
         }
-    }
-    void LoadScene(string sceneName)
-    {
-        SceneManager.LoadScene("WinScene");
     }
 }

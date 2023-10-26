@@ -75,6 +75,6 @@ public class CharacterSelection : MonoBehaviour
     {
         PlayerPrefs.SetInt("selectedCharacter", selectedCharacter);
         PlayerPrefs.SetInt("selectedPuck", selectedPuck);
-        SceneManager.LoadScene(9, LoadSceneMode.Single);
+        SceneManager.LoadScene(10, LoadSceneMode.Single);
     }
 }

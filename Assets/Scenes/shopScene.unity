@@ -932,6 +932,10 @@ MonoBehaviour:
   - {fileID: 239040090}
   - {fileID: 1882617887}
   gambasText: {fileID: 0}
+  lobbyUsername: 
+  lobbyGambas: 
+  wins: 
+  icon: 
 --- !u!1 &324147205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,6 +1033,10 @@ MonoBehaviour:
   - {fileID: 1199481306}
   - {fileID: 0}
   gambasText: {fileID: 0}
+  lobbyUsername: 
+  lobbyGambas: 
+  wins: 
+  icon: 
 --- !u!114 &324147208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1324,7 +1332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &456946751
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2458,7 +2466,7 @@ PrefabInstance:
       objectReference: {fileID: 891067644}
     - target: {fileID: 4409272494396131063, guid: 6cd8b37b52666234e88e49ac1b2b336d, type: 3}
       propertyPath: m_text
-      value: 315
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4409272494396131063, guid: 6cd8b37b52666234e88e49ac1b2b336d, type: 3}
       propertyPath: m_fontAsset
@@ -2980,6 +2988,10 @@ MonoBehaviour:
   shopPanels: []
   myPurchaseBtns: []
   gambasText: {fileID: 1186908956}
+  lobbyUsername: 
+  lobbyGambas: 
+  wins: 
+  icon: 
 --- !u!1 &846755737
 GameObject:
   m_ObjectHideFlags: 0
@@ -2996,7 +3008,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &846755738
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3550,7 +3562,7 @@ PrefabInstance:
       objectReference: {fileID: 1626475266}
     - target: {fileID: 4409272494396131063, guid: 6cd8b37b52666234e88e49ac1b2b336d, type: 3}
       propertyPath: m_text
-      value: 325
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4409272494396131063, guid: 6cd8b37b52666234e88e49ac1b2b336d, type: 3}
       propertyPath: m_fontAsset
@@ -4011,7 +4023,7 @@ PrefabInstance:
       objectReference: {fileID: 1058695920}
     - target: {fileID: 4409272494396131063, guid: 6cd8b37b52666234e88e49ac1b2b336d, type: 3}
       propertyPath: m_text
-      value: 300
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4409272494396131063, guid: 6cd8b37b52666234e88e49ac1b2b336d, type: 3}
       propertyPath: m_fontAsset
@@ -4584,7 +4596,7 @@ PrefabInstance:
       objectReference: {fileID: 1626576676}
     - target: {fileID: 4409272494396131063, guid: 6cd8b37b52666234e88e49ac1b2b336d, type: 3}
       propertyPath: m_text
-      value: 260
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4409272494396131063, guid: 6cd8b37b52666234e88e49ac1b2b336d, type: 3}
       propertyPath: m_fontAsset
@@ -5987,7 +5999,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1508414010}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6632,9 +6644,7 @@ PrefabInstance:
       objectReference: {fileID: 1687303784}
     - target: {fileID: 4409272494396131063, guid: 6cd8b37b52666234e88e49ac1b2b336d, type: 3}
       propertyPath: m_text
-      value: '250
-
-'
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4409272494396131063, guid: 6cd8b37b52666234e88e49ac1b2b336d, type: 3}
       propertyPath: m_margin.z
@@ -7259,7 +7269,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1882074321
 RectTransform:
   m_ObjectHideFlags: 0

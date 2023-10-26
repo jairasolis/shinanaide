@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: WATER BALL
   description: Without water life would be just a rock.
-  baseCost: 300
+  baseCost: 10
   itemImage: {fileID: 21300000, guid: 9f3c363941a2bca4daa7041d8ed4f8ac, type: 3}
